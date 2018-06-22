@@ -20,6 +20,7 @@ class ViewController: UIViewController
 
     @IBAction func buttonGeneralPressed(_ sender: Any)
     {
+        /*
         NewsAPIClient.sharedInstance().getArticlesForCategory(category: "sports")
         {
             (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void in
@@ -33,7 +34,19 @@ class ViewController: UIViewController
                     print("failure")
                 }
         }
+ 
+         */
         
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let controller: ArticleTableViewController = segue.destination as! ArticleTableViewController
+        
+        
+        controller.category = "sports"
     }
 }
 

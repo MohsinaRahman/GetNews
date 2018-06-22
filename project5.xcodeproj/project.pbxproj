@@ -11,7 +11,7 @@
 		CA6A799220DC9B7D0092D8D9 /* NewsAPIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A799120DC9B7D0092D8D9 /* NewsAPIConstants.swift */; };
 		CA6A799420DCA2800092D8D9 /* NewsAPIConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A799320DCA2800092D8D9 /* NewsAPIConvenience.swift */; };
 		CA6A799720DCA6000092D8D9 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A799620DCA6000092D8D9 /* Article.swift */; };
-		CA6A799A20DCBB790092D8D9 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A799920DCBB790092D8D9 /* ArticleListViewController.swift */; };
+		CA6A799C20DCCFD50092D8D9 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A799B20DCCFD50092D8D9 /* ArticleTableViewController.swift */; };
 		CA96C13A20C09C8F00E4F486 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96C13920C09C8F00E4F486 /* AppDelegate.swift */; };
 		CA96C13C20C09C8F00E4F486 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96C13B20C09C8F00E4F486 /* ViewController.swift */; };
 		CA96C13F20C09C8F00E4F486 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA96C13D20C09C8F00E4F486 /* Main.storyboard */; };
@@ -24,7 +24,7 @@
 		CA6A799120DC9B7D0092D8D9 /* NewsAPIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIConstants.swift; sourceTree = "<group>"; };
 		CA6A799320DCA2800092D8D9 /* NewsAPIConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIConvenience.swift; sourceTree = "<group>"; };
 		CA6A799620DCA6000092D8D9 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		CA6A799920DCBB790092D8D9 /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
+		CA6A799B20DCCFD50092D8D9 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
 		CA96C13620C09C8F00E4F486 /* project5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA96C13920C09C8F00E4F486 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA96C13B20C09C8F00E4F486 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,8 +66,8 @@
 		CA6A799820DCBB030092D8D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CA6A799B20DCCFD50092D8D9 /* ArticleTableViewController.swift */,
 				CA96C13B20C09C8F00E4F486 /* ViewController.swift */,
-				CA6A799920DCBB790092D8D9 /* ArticleListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 				CA6A799220DC9B7D0092D8D9 /* NewsAPIConstants.swift in Sources */,
 				CA96C13C20C09C8F00E4F486 /* ViewController.swift in Sources */,
 				CA96C13A20C09C8F00E4F486 /* AppDelegate.swift in Sources */,
-				CA6A799A20DCBB790092D8D9 /* ArticleListViewController.swift in Sources */,
+				CA6A799C20DCCFD50092D8D9 /* ArticleTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

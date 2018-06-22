@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ArticleListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class ArticleTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
+    var category:String = ""
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        print(category)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
