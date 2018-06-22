@@ -27,7 +27,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="General"/>
                                         <connections>
-                                            <action selector="buttonGeneralPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oAJ-uJ-8ci"/>
+                                            <action selector="buttonGeneralPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xvJ-SL-1Gw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z62-Jw-Yps">
@@ -35,8 +35,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Sports"/>
                                         <connections>
-                                            <action selector="buttonGeneralPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hur-17-H5W"/>
-                                            <action selector="buttonSportsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bCz-Xl-7SC"/>
+                                            <action selector="buttonSportsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcQ-Fw-gIh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -47,8 +46,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="tXx-th-a9o"/>
                     <connections>
-                        <outlet property="buttonGeneral" destination="YgJ-bo-Hxn" id="fE2-fA-nd4"/>
-                        <outlet property="buttonSports" destination="Z62-Jw-Yps" id="NxX-Tg-MmL"/>
+                        <outlet property="buttonGeneral" destination="YgJ-bo-Hxn" id="uFy-cO-CMH"/>
+                        <outlet property="buttonSports" destination="Z62-Jw-Yps" id="MR6-17-A51"/>
                         <segue destination="aUy-Bx-Rvh" kind="show" identifier="segueToArticleTable" id="6FO-Kf-dZH"/>
                     </connections>
                 </viewController>
