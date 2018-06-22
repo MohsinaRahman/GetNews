@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController
 {
     @IBOutlet weak var buttonGeneral: UIButton!
+    @IBOutlet weak var buttonSports: UIButton!
+    
+    var category: String = "general"
     
     override func viewDidLoad()
     {
@@ -18,27 +21,16 @@ class ViewController: UIViewController
 
     }
 
+    @IBAction func buttonSportsPressed(_ sender: Any)
+    {
+        self.category = "sports"
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+    }
+    
     @IBAction func buttonGeneralPressed(_ sender: Any)
     {
-        /*
-        NewsAPIClient.sharedInstance().getArticlesForCategory(category: "sports")
-        {
-            (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void in
-            
-                if(success)
-                {
-                    print("success")
-                }
-                else
-                {
-                    print("failure")
-                }
-        }
- 
-         */
-        
+        self.category = "general"
         self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -46,7 +38,7 @@ class ViewController: UIViewController
         let controller: ArticleTableViewController = segue.destination as! ArticleTableViewController
         
         
-        controller.category = "sports"
+        controller.category = self.category
     }
 }
 

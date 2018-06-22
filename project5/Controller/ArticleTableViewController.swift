@@ -11,22 +11,44 @@ import UIKit
 class ArticleTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     var category:String = ""
-
+    var articlesArray : [Article]?
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        print(category)
+        NewsAPIClient.sharedInstance().getArticlesForCategory(category: self.category)
+        {
+            (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void in
+            
+                if(success)
+                {
+                    self.articlesArray = articles
+                    
+                    DispatchQueue.main.async
+                    {
+                        self.tableView.reloadData()
+                    }
+                }
+                else
+                {
+                    print("failure")
+                }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 0
+        return articlesArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell")!
+        
+        cell.textLabel?.text = articlesArray![indexPath.row].title
+        
         return cell
     }
 
