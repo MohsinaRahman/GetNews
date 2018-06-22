@@ -12,6 +12,11 @@ class ViewController: UIViewController
 {
     @IBOutlet weak var buttonGeneral: UIButton!
     @IBOutlet weak var buttonSports: UIButton!
+    @IBOutlet weak var buttonBusiness: UIButton!
+    @IBOutlet weak var buttonEntertainment: UIButton!
+    @IBOutlet weak var buttonHealth: UIButton!
+    @IBOutlet weak var buttonScience: UIButton!
+    @IBOutlet weak var buttonTechnology: UIButton!
     
     var category: String = "general"
     
@@ -32,6 +37,37 @@ class ViewController: UIViewController
         self.category = "general"
         self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
     }
+    
+    @IBAction func buttonBusinessPressed(_ sender: Any)
+    {
+        self.category = "business"
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+    }
+    
+    @IBAction func buttonEntertainmentPressed(_ sender: Any)
+    {
+        self.category = "entertainment"
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+    }
+    
+    @IBAction func buttonHealthPressed(_ sender: Any)
+    {
+        self.category = "health"
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+    }
+    
+    @IBAction func buttonSciencePressed(_ sender: Any)
+    {
+        self.category = "science"
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+    }
+    
+    @IBAction func buttonTechnologyPressed(_ sender: Any)
+    {
+        self.category = "technology"
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {

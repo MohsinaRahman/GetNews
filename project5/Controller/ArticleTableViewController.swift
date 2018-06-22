@@ -45,9 +45,11 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell")! as! ArticleTableViewCell
         
-        cell.textLabel?.text = articlesArray![indexPath.row].title
+        // cell.textLabel?.text = articlesArray![indexPath.row].title
+        cell.articleTitleTextView.text = articlesArray![indexPath.row].title
+        cell.articleSourceTextView.text = "some source"
         
         return cell
     }

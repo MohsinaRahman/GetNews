@@ -19,23 +19,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6fd-Ag-ulg">
-                                <rect key="frame" x="135" y="315" width="117" height="108"/>
+                                <rect key="frame" x="135" y="315" width="181" height="336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgJ-bo-Hxn">
-                                        <rect key="frame" x="0.0" y="0.0" width="117" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="General"/>
                                         <connections>
                                             <action selector="buttonGeneralPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xvJ-SL-1Gw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z62-Jw-Yps">
-                                        <rect key="frame" x="0.0" y="54" width="117" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <rect key="frame" x="0.0" y="48" width="181" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Sports"/>
                                         <connections>
                                             <action selector="buttonSportsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcQ-Fw-gIh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-C0-deA">
+                                        <rect key="frame" x="0.0" y="96" width="181" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Business"/>
+                                        <connections>
+                                            <action selector="buttonBusinessPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QlI-nG-YtV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tv-xv-anW">
+                                        <rect key="frame" x="0.0" y="144" width="181" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Entertainment"/>
+                                        <connections>
+                                            <action selector="buttonEntertainmentPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Vr-Fn-sEI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="um1-SG-YnP">
+                                        <rect key="frame" x="0.0" y="192" width="181" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Health"/>
+                                        <connections>
+                                            <action selector="buttonHealthPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ung-l9-sKQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exX-YG-G24">
+                                        <rect key="frame" x="0.0" y="240" width="181" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Science"/>
+                                        <connections>
+                                            <action selector="buttonSciencePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q90-AR-GKq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-Ih-teP">
+                                        <rect key="frame" x="0.0" y="288" width="181" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Technology"/>
+                                        <connections>
+                                            <action selector="buttonTechnologyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YzL-kl-pZe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -46,14 +86,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="tXx-th-a9o"/>
                     <connections>
+                        <outlet property="buttonBusiness" destination="6Gy-C0-deA" id="phu-bK-eWc"/>
+                        <outlet property="buttonEntertainment" destination="1tv-xv-anW" id="Mdk-Mi-Gec"/>
                         <outlet property="buttonGeneral" destination="YgJ-bo-Hxn" id="uFy-cO-CMH"/>
+                        <outlet property="buttonHealth" destination="um1-SG-YnP" id="EIV-5s-ChI"/>
+                        <outlet property="buttonScience" destination="exX-YG-G24" id="Uov-ZD-rKJ"/>
                         <outlet property="buttonSports" destination="Z62-Jw-Yps" id="MR6-17-A51"/>
+                        <outlet property="buttonTechnology" destination="UHG-Ih-teP" id="fSA-Us-d4R"/>
                         <segue destination="aUy-Bx-Rvh" kind="show" identifier="segueToArticleTable" id="6FO-Kf-dZH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="117.39130434782609"/>
+            <point key="canvasLocation" x="910" y="116"/>
         </scene>
         <!--Article Table View Controller-->
         <scene sceneID="eEE-86-mjM">
@@ -67,13 +112,58 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" id="zft-jb-zlj">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="128" id="zft-jb-zlj" customClass="ArticleTableViewCell" customModule="project5" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zft-jb-zlj" id="YsD-rA-Zsx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no image" translatesAutoresizingMaskIntoConstraints="NO" id="txp-xW-yvW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="3s6-XU-k9r"/>
+                                                        <constraint firstAttribute="height" constant="128" id="qNQ-cs-GI0"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rrh-PX-4hZ">
+                                                    <rect key="frame" x="131" y="0.0" width="244" height="128"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2p-Xs-Jtf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="244" height="100"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rob-im-PK4">
+                                                            <rect key="frame" x="0.0" y="100" width="244" height="28"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="28" id="KSS-Rn-1hS"/>
+                                                            </constraints>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Rrh-PX-4hZ" secondAttribute="bottom" id="4LM-JG-4vg"/>
+                                                <constraint firstAttribute="bottom" secondItem="txp-xW-yvW" secondAttribute="bottom" id="czT-hu-5uD"/>
+                                                <constraint firstItem="Rrh-PX-4hZ" firstAttribute="leading" secondItem="txp-xW-yvW" secondAttribute="trailing" constant="3" id="hsg-gH-DIC"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rrh-PX-4hZ" secondAttribute="trailing" id="prY-N1-iYK"/>
+                                                <constraint firstItem="txp-xW-yvW" firstAttribute="leading" secondItem="YsD-rA-Zsx" secondAttribute="leading" id="rvY-yO-jw0"/>
+                                                <constraint firstItem="txp-xW-yvW" firstAttribute="top" secondItem="YsD-rA-Zsx" secondAttribute="top" id="uvH-z6-4p7"/>
+                                                <constraint firstItem="Rrh-PX-4hZ" firstAttribute="top" secondItem="YsD-rA-Zsx" secondAttribute="top" id="wmI-Iw-8a4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="articleImageView" destination="txp-xW-yvW" id="ACp-Vx-rvT"/>
+                                            <outlet property="articleSourceTextView" destination="rob-im-PK4" id="cAC-Lc-SSS"/>
+                                            <outlet property="articleTitleTextView" destination="h2p-Xs-Jtf" id="EtC-6h-5kn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -116,7 +206,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGA-4B-UMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="116"/>
+            <point key="canvasLocation" x="31" y="116"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="no image" width="225" height="225"/>
+    </resources>
 </document>
