@@ -51,9 +51,16 @@ extension NewsAPIClient
             }
             
             print(results!)
-            let articles = results?["articles"] as! [[String: AnyObject]]
+            let articlesArrayOfDictionary = results?["articles"] as! [[String: AnyObject]]
             
-            completionHandler(true,nil, nil)
+            var articleArray = [Article]()
+            for item in articlesArrayOfDictionary
+            {
+                let article = Article(article: item)
+                articleArray.append(article)
+            }
+            
+            completionHandler(true,articleArray, nil)
         }
     }
 }
