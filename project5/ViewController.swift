@@ -20,9 +20,20 @@ class ViewController: UIViewController
 
     @IBAction func buttonGeneralPressed(_ sender: Any)
     {
+        NewsAPIClient.sharedInstance().getArticlesForCategory(category: "sports")
+        {
+            (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void in
+            
+                if(success)
+                {
+                    print("success")
+                }
+                else
+                {
+                    print("failure")
+                }
+        }
         
     }
-    
-
 }
 
