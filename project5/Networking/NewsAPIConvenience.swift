@@ -63,4 +63,63 @@ extension NewsAPIClient
             completionHandler(true,articleArray, nil)
         }
     }
+    
+    func getImageFromUrl(urlString: String, completionHandler: @escaping (_ success: Bool, _ urlString:String?, _ imageData: Data?, _ errorString: String?)->Void)
+    {
+        // Build the URL
+        let url = URL(string: urlString)
+        
+        guard url != nil else
+        {
+            completionHandler(false, nil, nil, "Could not parse URL: \(urlString)")
+            return
+        }
+        
+        
+        // Start the taks
+        let task = URLSession.shared.dataTask(with: url!)
+        {
+            data, response, error in
+            
+            func sendError(_ error: String)
+            {
+                print(error)
+                let internetOfflineErrorMessage = "NSURLErrorDomain Code=-1009"
+                // let userInfo = [NSLocalizedDescriptionKey : error]
+                if(error.contains(internetOfflineErrorMessage))
+                {
+                    completionHandler(false, nil, nil, error)
+                }
+                else
+                {
+                    completionHandler(false, nil, nil, error)
+                }
+            }
+            
+            // GUARD: Was there an error?
+            guard (error == nil) else
+            {
+                sendError("There was an error with your request: \(error!)")
+                return
+            }
+            
+            // GUARD: Did we get a successful 2XX response?
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else
+            {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            // GUARD: Was there any data returned?
+            guard let data = data else
+            {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            completionHandler(true, urlString, data, nil)
+        }
+        
+        task.resume()
+    }
 }

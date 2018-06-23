@@ -53,7 +53,36 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         cell.articleTitleTextView.text = articlesArray![indexPath.row].title
         cell.articleSourceTextView.text = articlesArray![indexPath.row].sourceName
         
-        
+        if(articlesArray![indexPath.row].imageData == nil)
+        {
+            cell.articleImageView.image = UIImage(named: "No image available")
+            if(articlesArray![indexPath.row].urlToImage != nil)
+            {
+                NewsAPIClient.sharedInstance().getImageFromUrl(urlString: articlesArray![indexPath.row].urlToImage!)
+                {
+                    (_ success: Bool, _ imagePath: String?, _ imageData: Data?, _ errorString: String?)->Void in
+                    
+                    if(success)
+                    {
+                        self.articlesArray![indexPath.row].imageData = imageData
+                        DispatchQueue.main.async
+                            {
+                                self.tableView.reloadRows(at: [indexPath], with: .bottom)
+                        }
+                    }
+                    else
+                    {
+                        
+                        print("Error downloading image: \(self.articlesArray![indexPath.row].urlToImage!)")
+                        print("Error code: \(errorString)")
+                    }
+                }
+            }
+        }
+        else
+        {
+            cell.articleImageView.image = UIImage(data: articlesArray![indexPath.row].imageData!)
+        }
         return cell
     }
     
