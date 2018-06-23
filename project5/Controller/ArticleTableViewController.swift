@@ -56,6 +56,16 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleDisplayViewController") as! ArticleDisplayViewController
+        
+        controller.urlString = articlesArray![indexPath.row].url
+        
+        self.navigationController!.pushViewController(controller, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
         if (editingStyle == .delete)

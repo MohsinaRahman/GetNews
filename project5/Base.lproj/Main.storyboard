@@ -144,7 +144,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No image available" translatesAutoresizingMaskIntoConstraints="NO" id="txp-xW-yvW">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No image available" translatesAutoresizingMaskIntoConstraints="NO" id="txp-xW-yvW">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="128" id="3s6-XU-k9r"/>
@@ -154,11 +154,10 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rrh-PX-4hZ">
                                                     <rect key="frame" x="131" y="0.0" width="244" height="128"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2p-Xs-Jtf">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2p-Xs-Jtf">
                                                             <rect key="frame" x="0.0" y="0.0" width="244" height="100"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rob-im-PK4">
@@ -214,6 +213,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hE-Gd-tpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1788" y="116.49175412293854"/>
+        </scene>
+        <!--Article Display View Controller-->
+        <scene sceneID="uLK-fN-e6u">
+            <objects>
+                <viewController storyboardIdentifier="ArticleDisplayViewController" id="tt6-9K-g3b" customClass="ArticleDisplayViewController" customModule="project5" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cVt-L9-dgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpO-DA-fst">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GV4-u0-en5"/>
+                                    <barButtonItem title="fav" id="qlc-fD-haB"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6UU-ok-9dk"/>
+                                    <barButtonItem title="share" id="eGL-IV-8PS"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WAw-d9-QpG"/>
+                                </items>
+                            </toolbar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zC-6S-tKF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xpO-DA-fst" firstAttribute="trailing" secondItem="T9v-Wv-gos" secondAttribute="trailing" id="CXP-at-2B0"/>
+                            <constraint firstItem="xpO-DA-fst" firstAttribute="bottom" secondItem="T9v-Wv-gos" secondAttribute="bottom" id="Ryw-9C-cV0"/>
+                            <constraint firstItem="2zC-6S-tKF" firstAttribute="top" secondItem="T9v-Wv-gos" secondAttribute="top" id="T7Y-0u-GHC"/>
+                            <constraint firstItem="T9v-Wv-gos" firstAttribute="trailing" secondItem="2zC-6S-tKF" secondAttribute="trailing" id="ez8-GI-My8"/>
+                            <constraint firstItem="xpO-DA-fst" firstAttribute="top" secondItem="2zC-6S-tKF" secondAttribute="bottom" id="j0U-G3-jM4"/>
+                            <constraint firstItem="xpO-DA-fst" firstAttribute="leading" secondItem="T9v-Wv-gos" secondAttribute="leading" id="khP-PE-G3w"/>
+                            <constraint firstItem="2zC-6S-tKF" firstAttribute="leading" secondItem="T9v-Wv-gos" secondAttribute="leading" id="swL-5f-1Kz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T9v-Wv-gos"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="2zC-6S-tKF" id="apE-oT-ybX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72a-xj-hFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2738" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yhY-iG-Ozj">
