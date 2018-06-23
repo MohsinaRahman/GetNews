@@ -12,6 +12,8 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
 {
     var category:String = ""
     var articlesArray : [Article]?
+
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad()
@@ -51,7 +53,16 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         cell.articleTitleTextView.text = articlesArray![indexPath.row].title
         cell.articleSourceTextView.text = "some source"
         
+        
         return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if (editingStyle == .delete)
+        {
+            articlesArray?.remove(at: indexPath.item)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 
 }
