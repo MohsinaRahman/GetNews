@@ -23,8 +23,17 @@ class ViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        buttonGeneral.imageView?.contentMode = .scaleAspectFit
+        buttonSports.imageView?.contentMode = .scaleAspectFit
+        buttonBusiness.imageView?.contentMode = .scaleAspectFit
+        buttonEntertainment.imageView?.contentMode = .scaleAspectFit
+        buttonHealth.imageView?.contentMode = .scaleAspectFit
+        buttonScience.imageView?.contentMode = .scaleAspectFit
+        buttonTechnology.imageView?.contentMode = .scaleAspectFit
 
     }
+    
 
     @IBAction func buttonSportsPressed(_ sender: Any)
     {
