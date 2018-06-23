@@ -20,6 +20,26 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     {
         super.viewDidLoad()
         
+        switch(category)
+        {
+        case "general":
+            self.navigationItem.title = "General Headlines"
+        case "health":
+            self.navigationItem.title = "Health Headlines"
+        case "business":
+            self.navigationItem.title = "Business Headlines"
+        case "science":
+            self.navigationItem.title = "Science Headlines"
+        case "sports":
+            self.navigationItem.title = "Sports Headlines"
+        case "technology":
+            self.navigationItem.title = "Technology Headlines"
+        case "entertainment":
+            self.navigationItem.title = "Entertainment Headlines"
+        default:
+            self.navigationItem.title = "Other Headlines"
+        }
+        
         NewsAPIClient.sharedInstance().getArticlesForCategory(category: self.category)
         {
             (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void in

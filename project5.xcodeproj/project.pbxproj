@@ -70,8 +70,8 @@
 		CA6A799820DCBB030092D8D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CA6A799B20DCCFD50092D8D9 /* ArticleTableViewController.swift */,
 				CA96C13B20C09C8F00E4F486 /* ViewController.swift */,
+				CA6A799B20DCCFD50092D8D9 /* ArticleTableViewController.swift */,
 				CA6A79A020DF0C170092D8D9 /* ArticleDisplayViewController.swift */,
 			);
 			path = Controller;
