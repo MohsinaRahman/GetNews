@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "download.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Categories-applications-science-icon.png",
       "scale" : "2x"
     },
     {

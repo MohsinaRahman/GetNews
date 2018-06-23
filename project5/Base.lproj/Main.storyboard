@@ -18,70 +18,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6fd-Ag-ulg">
-                                <rect key="frame" x="135" y="315" width="181" height="336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6fd-Ag-ulg">
+                                <rect key="frame" x="16" y="64" width="343" height="479"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgJ-bo-Hxn">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="General"/>
-                                        <connections>
-                                            <action selector="buttonGeneralPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xvJ-SL-1Gw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z62-Jw-Yps">
-                                        <rect key="frame" x="0.0" y="48" width="181" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Sports"/>
-                                        <connections>
-                                            <action selector="buttonSportsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcQ-Fw-gIh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-C0-deA">
-                                        <rect key="frame" x="0.0" y="96" width="181" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Business"/>
-                                        <connections>
-                                            <action selector="buttonBusinessPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QlI-nG-YtV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tv-xv-anW">
-                                        <rect key="frame" x="0.0" y="144" width="181" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Entertainment"/>
-                                        <connections>
-                                            <action selector="buttonEntertainmentPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Vr-Fn-sEI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="um1-SG-YnP">
-                                        <rect key="frame" x="0.0" y="192" width="181" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Health"/>
-                                        <connections>
-                                            <action selector="buttonHealthPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ung-l9-sKQ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exX-YG-G24">
-                                        <rect key="frame" x="0.0" y="240" width="181" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Science"/>
-                                        <connections>
-                                            <action selector="buttonSciencePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q90-AR-GKq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-Ih-teP">
-                                        <rect key="frame" x="0.0" y="288" width="181" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Technology"/>
-                                        <connections>
-                                            <action selector="buttonTechnologyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YzL-kl-pZe"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HWZ-ap-wxO">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="159.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-C0-deA">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="159.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Business" image="business"/>
+                                                <connections>
+                                                    <action selector="buttonBusinessPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QlI-nG-YtV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-Ih-teP">
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="159.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Technology" image="tecnology"/>
+                                                <connections>
+                                                    <action selector="buttonTechnologyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YzL-kl-pZe"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="t0v-I5-nEi">
+                                        <rect key="frame" x="0.0" y="159.5" width="343" height="160"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z62-Jw-Yps">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="160"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Sports" image="sport"/>
+                                                <connections>
+                                                    <action selector="buttonSportsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcQ-Fw-gIh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tv-xv-anW">
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="160"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Entertainment" image="entertainment"/>
+                                                <connections>
+                                                    <action selector="buttonEntertainmentPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Vr-Fn-sEI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="k7m-zG-syY">
+                                        <rect key="frame" x="0.0" y="319.5" width="343" height="159.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="um1-SG-YnP">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="159.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Health" image="health"/>
+                                                <connections>
+                                                    <action selector="buttonHealthPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ung-l9-sKQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exX-YG-G24">
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="159.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Science" image="science-1"/>
+                                                <connections>
+                                                    <action selector="buttonSciencePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q90-AR-GKq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgJ-bo-Hxn">
+                                <rect key="frame" x="137.5" y="551" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7Sz-YK-PUP"/>
+                                    <constraint firstAttribute="width" constant="100" id="Kie-At-Hqy"/>
+                                </constraints>
+                                <state key="normal" title="General" image="general"/>
+                                <connections>
+                                    <action selector="buttonGeneralPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xvJ-SL-1Gw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6fd-Ag-ulg" secondAttribute="trailing" constant="16" id="2gS-Zb-8oG"/>
+                            <constraint firstItem="YgJ-bo-Hxn" firstAttribute="top" secondItem="6fd-Ag-ulg" secondAttribute="bottom" constant="8" id="3pv-XI-trf"/>
+                            <constraint firstItem="6fd-Ag-ulg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4F4-cF-j6h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YgJ-bo-Hxn" secondAttribute="bottom" constant="16" id="PwC-7G-6A1"/>
+                            <constraint firstItem="YgJ-bo-Hxn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Yjl-x8-C7e"/>
+                            <constraint firstItem="6fd-Ag-ulg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="lXI-pK-xsK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="tXx-th-a9o"/>
@@ -119,7 +144,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no image" translatesAutoresizingMaskIntoConstraints="NO" id="txp-xW-yvW">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No image available" translatesAutoresizingMaskIntoConstraints="NO" id="txp-xW-yvW">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="128" id="3s6-XU-k9r"/>
@@ -210,6 +235,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="no image" width="225" height="225"/>
+        <image name="No image available" width="112" height="112"/>
+        <image name="business" width="121" height="120"/>
+        <image name="entertainment" width="112" height="112"/>
+        <image name="general" width="177" height="219"/>
+        <image name="health" width="112" height="112"/>
+        <image name="science-1" width="128" height="128"/>
+        <image name="sport" width="128" height="128"/>
+        <image name="tecnology" width="96" height="96"/>
     </resources>
 </document>
