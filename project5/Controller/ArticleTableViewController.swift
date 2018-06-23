@@ -51,7 +51,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         // cell.textLabel?.text = articlesArray![indexPath.row].title
         cell.articleTitleTextView.text = articlesArray![indexPath.row].title
-        cell.articleSourceTextView.text = "some source"
+        cell.articleSourceTextView.text = articlesArray![indexPath.row].sourceName
         
         
         return cell

@@ -15,7 +15,9 @@ struct Article
     var description: String?
     var url: String?
     var urlToImage: String?
+    var imageData: Data?
     var publishedAt: String?
+    var sourceName: String?
     
     init (article: [String: AnyObject])
     {
@@ -25,6 +27,9 @@ struct Article
         url = article[NewsAPIClient.Constants.JSONResponseKeys.url] as? String
         urlToImage = article[NewsAPIClient.Constants.JSONResponseKeys.urlToImage] as? String
         publishedAt = article[NewsAPIClient.Constants.JSONResponseKeys.publishedAt] as? String
+        
+        let source = article[NewsAPIClient.Constants.JSONResponseKeys.source] as? [String:AnyObject]
+        sourceName = source![NewsAPIClient.Constants.JSONResponseKeys.sourceName] as? String
     }
 }
 

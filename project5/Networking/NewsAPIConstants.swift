@@ -38,6 +38,8 @@ extension NewsAPIClient
             static let totalResults = "totalResults"
             static let articles = "articles"
             static let source = "source"
+            static let sourceName = "name"
+            static let sourceID = "id"
             static let author = "author"
             static let title = "title"
             static let description = "description"
