@@ -23,8 +23,15 @@ class InitialViewController: UIViewController
 
     @IBAction func favoriteButtonPressed(_ sender: Any)
     {
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleTableViewController") as! ArticleTableViewController
         
+        controller.category = "favorite"
+        
+        self.navigationController!.pushViewController(controller, animated: true)
     }
+    
+    
+    
     
     @IBAction func hotNewsButtonPressed(_ sender: Any)
     {

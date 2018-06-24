@@ -22,41 +22,52 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         switch(category)
         {
-        case "general":
-            self.navigationItem.title = "General Headlines"
-        case "health":
-            self.navigationItem.title = "Health Headlines"
-        case "business":
-            self.navigationItem.title = "Business Headlines"
-        case "science":
-            self.navigationItem.title = "Science Headlines"
-        case "sports":
-            self.navigationItem.title = "Sports Headlines"
-        case "technology":
-            self.navigationItem.title = "Technology Headlines"
-        case "entertainment":
-            self.navigationItem.title = "Entertainment Headlines"
-        default:
-            self.navigationItem.title = "Other Headlines"
+            case "general":
+                self.navigationItem.title = "General Headlines"
+            case "health":
+                self.navigationItem.title = "Health Headlines"
+            case "business":
+                self.navigationItem.title = "Business Headlines"
+            case "science":
+                self.navigationItem.title = "Science Headlines"
+            case "sports":
+                self.navigationItem.title = "Sports Headlines"
+            case "technology":
+                self.navigationItem.title = "Technology Headlines"
+            case "entertainment":
+                self.navigationItem.title = "Entertainment Headlines"
+            
+        
+            case "favorite":
+                self.navigationItem.title = "Favorite List"
+            default:
+                self.navigationItem.title = "Other Headlines"
         }
         
-        NewsAPIClient.sharedInstance().getArticlesForCategory(category: self.category)
+        if(category == "favorite")
         {
-            (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void in
-            
-                if(success)
-                {
-                    self.articlesArray = articles
-                    
-                    DispatchQueue.main.async
+            self.articlesArray = ArticleDataSource.sharedInstance().articleFavoriteArray
+        }
+        else
+        {
+            NewsAPIClient.sharedInstance().getArticlesForCategory(category: self.category)
+            {
+                (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void in
+                
+                    if(success)
                     {
-                        self.tableView.reloadData()
+                        self.articlesArray = articles
+                        
+                        DispatchQueue.main.async
+                        {
+                            self.tableView.reloadData()
+                        }
                     }
-                }
-                else
-                {
-                    print("failure")
-                }
+                    else
+                    {
+                        print("failure")
+                    }
+            }
         }
     }
     
@@ -148,7 +159,14 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         let action = UIContextualAction(style: .normal,title: "Favorite")
         {
             (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
-            
+            if (ArticleDataSource.sharedInstance().articleFavoriteArray == nil)
+            {
+                ArticleDataSource.sharedInstance().articleFavoriteArray = [article]
+            }
+            else
+            {
+                ArticleDataSource.sharedInstance().articleFavoriteArray?.append(article)
+            }
             completionHandler(true)
             
         }

@@ -134,7 +134,7 @@
         <!--Article Table View Controller-->
         <scene sceneID="eEE-86-mjM">
             <objects>
-                <viewController id="aUy-Bx-Rvh" customClass="ArticleTableViewController" customModule="project5" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleTableViewController" id="aUy-Bx-Rvh" customClass="ArticleTableViewController" customModule="project5" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFj-gh-Vv8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
