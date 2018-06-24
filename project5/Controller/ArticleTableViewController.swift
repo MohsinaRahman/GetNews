@@ -21,6 +21,9 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        
         let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home"), style: .plain, target: self, action: #selector(goHome))
         let buttonRefresh = UIBarButtonItem(image: #imageLiteral(resourceName: "refresh"), style: .plain, target: self, action: #selector(refreshArticles))
         navigationItem.rightBarButtonItems = [buttonHome, buttonRefresh]
@@ -93,12 +96,12 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell")! as! ArticleTableViewCell
         
         // cell.textLabel?.text = articlesArray![indexPath.row].title
-        cell.articleTitleTextView.text = articlesArray![indexPath.row].title
-        cell.articleSourceTextView.text = articlesArray![indexPath.row].sourceName
+        cell.headlineLabel.text = articlesArray![indexPath.row].title
+        // cell.sourceLabel.text = articlesArray![indexPath.row].sourceName
         
         if(articlesArray![indexPath.row].imageData == nil)
         {
-            cell.articleImageView.image = UIImage(named: "No image available")
+            // cell.articleImageView.image = UIImage(named: "No image available")
             if(articlesArray![indexPath.row].urlToImage != nil)
             {
                 NewsAPIClient.sharedInstance().getImageFromUrl(urlString: articlesArray![indexPath.row].urlToImage!)
@@ -124,7 +127,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         }
         else
         {
-            cell.articleImageView.image = UIImage(data: articlesArray![indexPath.row].imageData!)
+            // cell.articleImageView.image = UIImage(data: articlesArray![indexPath.row].imageData!)
         }
         return cell
     }
