@@ -21,6 +21,11 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     {
         super.viewDidLoad()
         
+        let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home"), style: .plain, target: self, action: #selector(goHome))
+        let buttonRefresh = UIBarButtonItem(image: #imageLiteral(resourceName: "refresh"), style: .plain, target: self, action: #selector(refreshArticles))
+        navigationItem.rightBarButtonItems = [buttonHome, buttonRefresh]
+        
+        
         switch(category)
         {
             case "general":
@@ -142,6 +147,8 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         return swipeConfig
     }
     
+  
+    
     func contextForShareAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
     {
         sharedArticle = articlesArray![indexPath.row]
@@ -182,7 +189,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
         if (editingStyle == .delete)
@@ -190,6 +196,18 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
             articlesArray?.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+    
+    
+    @objc func goHome() {
+        if let navigationController = navigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
+    }
+    
+    @objc func refreshArticles()
+    {
+       print("Articles Refreshed!")
     }
 
 }

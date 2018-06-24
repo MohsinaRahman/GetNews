@@ -13,19 +13,19 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="project5" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsCategoryViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="project5" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6fd-Ag-ulg">
-                                <rect key="frame" x="16" y="64" width="343" height="479"/>
+                                <rect key="frame" x="16" y="20" width="343" height="523"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HWZ-ap-wxO">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="159.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="174.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gy-C0-deA">
-                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="159.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="174.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Business" image="business"/>
                                                 <connections>
@@ -33,7 +33,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-Ih-teP">
-                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="159.5"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="174.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Technology" image="tecnology"/>
                                                 <connections>
@@ -43,10 +43,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="t0v-I5-nEi">
-                                        <rect key="frame" x="0.0" y="159.5" width="343" height="160"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="343" height="174"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z62-Jw-Yps">
-                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="160"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="174"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Sports" image="sport"/>
                                                 <connections>
@@ -54,7 +54,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tv-xv-anW">
-                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="160"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="174"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Entertainment" image="entertainment"/>
                                                 <connections>
@@ -64,10 +64,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="k7m-zG-syY">
-                                        <rect key="frame" x="0.0" y="319.5" width="343" height="159.5"/>
+                                        <rect key="frame" x="0.0" y="348.5" width="343" height="174.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="um1-SG-YnP">
-                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="159.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="174.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Health" image="health"/>
                                                 <connections>
@@ -75,7 +75,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exX-YG-G24">
-                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="159.5"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="174.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Science" image="science-1"/>
                                                 <connections>
@@ -109,13 +109,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tXx-th-a9o">
-                        <barButtonItem key="leftBarButtonItem" title="Home" id="ZZE-DZ-LtA">
-                            <connections>
-                                <segue destination="fQM-ni-945" kind="show" id="ARu-MT-uYG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="buttonBusiness" destination="6Gy-C0-deA" id="phu-bK-eWc"/>
                         <outlet property="buttonEntertainment" destination="1tv-xv-anW" id="Mdk-Mi-Gec"/>
@@ -129,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="968"/>
+            <point key="canvasLocation" x="2478" y="176"/>
         </scene>
         <!--Article Table View Controller-->
         <scene sceneID="eEE-86-mjM">
@@ -140,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CbE-3Y-XQq">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="128" id="zft-jb-zlj" customClass="ArticleTableViewCell" customModule="project5" customModuleProvider="target">
@@ -211,14 +204,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uXO-DU-gJa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3Xh-eI-pzM"/>
                     <connections>
                         <outlet property="tableView" destination="CbE-3Y-XQq" id="YBo-0h-G7F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hE-Gd-tpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3052" y="985"/>
+            <point key="canvasLocation" x="2478" y="959"/>
         </scene>
         <!--News Application-->
         <scene sceneID="izM-Kt-pmY">
@@ -248,7 +240,6 @@
                                                 <state key="normal" title="Hot News"/>
                                                 <connections>
                                                     <action selector="hotNewsButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ktB-Ue-PSn"/>
-                                                    <segue destination="Y1I-4Q-G8v" kind="show" id="KXx-2b-qfa"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -296,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aww-yA-lNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3758" y="176"/>
+            <point key="canvasLocation" x="1446" y="176"/>
         </scene>
         <!--Article Display View Controller-->
         <scene sceneID="uLK-fN-e6u">
@@ -343,30 +334,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72a-xj-hFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3982" y="985"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yhY-iG-Ozj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y1I-4Q-G8v" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bUd-pj-O6M">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Kui-BU-hGI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yGA-4B-UMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1094" y="967"/>
+            <point key="canvasLocation" x="3458" y="958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6TJ-RU-o3I">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fQM-ni-945" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationControllerOne" automaticallyAdjustsScrollViewInsets="NO" id="fQM-ni-945" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xbv-QD-9Bs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -379,7 +352,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0J-Mi-ehr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2862" y="176"/>
+            <point key="canvasLocation" x="318" y="176"/>
         </scene>
     </scenes>
     <resources>
