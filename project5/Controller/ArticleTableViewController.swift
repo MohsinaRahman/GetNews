@@ -115,6 +115,49 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         self.navigationController!.pushViewController(controller, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let markForReadingAction = self.contextualMarkForReadAction(forRowAtIndexPath: indexPath)
+        let favoriteAction = self.contextualToggleFavoriteAction(forRowAtIndexPath: indexPath)
+        
+        let swipeConfig = UISwipeActionsConfiguration(actions: [markForReadingAction, favoriteAction])
+        
+        return swipeConfig
+    }
+    
+    func contextualMarkForReadAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
+    {
+    
+        var article = articlesArray![indexPath.row]
+    
+        let action = UIContextualAction(style: .normal,title: "Mark for Read")
+        {
+            (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+           
+            completionHandler(true)
+            
+        }
+        action.backgroundColor = UIColor.orange
+        
+        return action
+    }
+    
+    func contextualToggleFavoriteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
+    {
+        var article = articlesArray![indexPath.row]
+        let action = UIContextualAction(style: .normal,title: "Favorite")
+        {
+            (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
+            
+            completionHandler(true)
+            
+        }
+        action.image = UIImage(named: "favorites")
+        action.backgroundColor = UIColor.blue
+        
+        return action
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
         if (editingStyle == .delete)
