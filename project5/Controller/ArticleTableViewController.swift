@@ -139,7 +139,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleDisplayViewController") as! ArticleDisplayViewController
         
-        controller.urlString = articlesArray![indexPath.row].url
+        controller.article = articlesArray![indexPath.row]
         
         self.navigationController!.pushViewController(controller, animated: true)
     }
