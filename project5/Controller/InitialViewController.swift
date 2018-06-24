@@ -13,7 +13,7 @@ class InitialViewController: UIViewController
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var hotNewsButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var readingListButton: UIButton!
+    @IBOutlet weak var topicsearchButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -38,15 +38,22 @@ class InitialViewController: UIViewController
         
     }
     
-    @IBAction func shareButtonPressed(_ sender: Any)
+    @IBAction func topicSearchbuttonPressed(_ sender: Any)
     {
-        
+        print("Reading list pressed")
     }
     
-    @IBAction func readingListButtonPressed(_ sender: Any)
+    @IBAction func shareButtonPressed(_ sender: Any)
     {
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleTableViewController") as! ArticleTableViewController
         
+        controller.category = "share"
+        
+        self.navigationController!.pushViewController(controller, animated: true)
     }
+    
+    
+    
   
     
 }

@@ -267,9 +267,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-A2-apb">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="301.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="Reading List"/>
+                                                <state key="normal" title="Topic Search"/>
                                                 <connections>
-                                                    <action selector="readingListButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ZPb-Kj-nIF"/>
+                                                    <action selector="topicSearchbuttonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ZPb-Kj-nIF"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -290,8 +290,8 @@
                     <connections>
                         <outlet property="favoriteButton" destination="arW-jK-rkU" id="xkR-8i-EC5"/>
                         <outlet property="hotNewsButton" destination="r2Z-kn-80m" id="SHo-VW-5Yu"/>
-                        <outlet property="readingListButton" destination="Xid-A2-apb" id="H7F-XC-w7q"/>
                         <outlet property="shareButton" destination="n6V-wg-CQM" id="Itq-1U-K3R"/>
+                        <outlet property="topicsearchButton" destination="Xid-A2-apb" id="H7F-XC-w7q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aww-yA-lNw" userLabel="First Responder" sceneMemberID="firstResponder"/>

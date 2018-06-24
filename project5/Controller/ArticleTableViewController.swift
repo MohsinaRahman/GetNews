@@ -12,6 +12,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
 {
     var category:String = ""
     var articlesArray : [Article]?
+    var sharedArticle : Article?
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -40,6 +41,8 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
             case "favorite":
                 self.navigationItem.title = "Favorite List"
+            case "share":
+                self.navigationItem.title = "Shared List"
             default:
                 self.navigationItem.title = "Other Headlines"
         }
@@ -47,6 +50,10 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         if(category == "favorite")
         {
             self.articlesArray = ArticleDataSource.sharedInstance().articleFavoriteArray
+        }
+        else if(category == "share")
+        {
+            self.articlesArray = ArticleDataSource.sharedInstance().articleSharedArray
         }
         else
         {
@@ -105,7 +112,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                     {
                         
                         print("Error downloading image: \(self.articlesArray![indexPath.row].urlToImage!)")
-                        print("Error code: \(errorString)")
+                        print("Error code: \(errorString!)")
                     }
                 }
             }
@@ -128,53 +135,53 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        let markForReadingAction = self.contextualMarkForReadAction(forRowAtIndexPath: indexPath)
-        let favoriteAction = self.contextualToggleFavoriteAction(forRowAtIndexPath: indexPath)
+        let shareAction = self.contextForShareAction(forRowAtIndexPath: indexPath)
         
-        let swipeConfig = UISwipeActionsConfiguration(actions: [markForReadingAction, favoriteAction])
+        let swipeConfig = UISwipeActionsConfiguration(actions: [shareAction])
         
         return swipeConfig
     }
     
-    func contextualMarkForReadAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
+    func contextForShareAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
     {
+        sharedArticle = articlesArray![indexPath.row]
     
-        var article = articlesArray![indexPath.row]
-    
-        let action = UIContextualAction(style: .normal,title: "Mark for Read")
+        let action = UIContextualAction(style: .normal,title: "Share")
         {
             (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
-           
-            completionHandler(true)
+            
+                let url = URL(string: self.sharedArticle!.url!)
+            
+                if(url != nil)
+                {
+                    let controller = UIActivityViewController(activityItems:[url!], applicationActivities: nil)
+                    controller.completionWithItemsHandler = self.activityViewControllerCompletion
+                    self.present(controller, animated: true, completion: nil)
+                }
+            
+                completionHandler(true)
             
         }
-        action.backgroundColor = UIColor.orange
-        
-        return action
-    }
-    
-    func contextualToggleFavoriteAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
-    {
-        var article = articlesArray![indexPath.row]
-        let action = UIContextualAction(style: .normal,title: "Favorite")
-        {
-            (contextAction: UIContextualAction, sourceView: UIView, completionHandler: (Bool) -> Void) in
-            if (ArticleDataSource.sharedInstance().articleFavoriteArray == nil)
-            {
-                ArticleDataSource.sharedInstance().articleFavoriteArray = [article]
-            }
-            else
-            {
-                ArticleDataSource.sharedInstance().articleFavoriteArray?.append(article)
-            }
-            completionHandler(true)
-            
-        }
-        action.image = UIImage(named: "favorites")
         action.backgroundColor = UIColor.blue
         
         return action
     }
+    
+    func activityViewControllerCompletion(activity: UIActivityType?, completed: Bool, returnItems: [Any]?, activityError: Error?)
+    {
+        if completed
+        {
+            if(ArticleDataSource.sharedInstance().articleSharedArray == nil)
+            {
+                ArticleDataSource.sharedInstance().articleSharedArray = [sharedArticle!]
+            }
+            else
+            {
+                ArticleDataSource.sharedInstance().articleSharedArray?.append(sharedArticle!)
+            }
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
