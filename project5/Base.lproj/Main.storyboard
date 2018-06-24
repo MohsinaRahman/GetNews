@@ -145,22 +145,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MER-1c-i0e">
-                                                    <rect key="frame" x="23" y="11" width="277" height="118"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <rect key="frame" x="23" y="11" width="329" height="118"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-ta-JGT">
-                                                    <rect key="frame" x="341" y="11" width="22" height="118"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ald-ta-JGT" firstAttribute="top" secondItem="YsD-rA-Zsx" secondAttribute="topMargin" id="2L7-SL-coS"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="MER-1c-i0e" secondAttribute="bottom" id="7gJ-fG-Qja"/>
                                                 <constraint firstItem="MER-1c-i0e" firstAttribute="leading" secondItem="YsD-rA-Zsx" secondAttribute="leadingMargin" constant="8" id="EXZ-Me-jNO"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="MER-1c-i0e" secondAttribute="trailing" constant="60" id="MrP-kD-Z3d"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Ald-ta-JGT" secondAttribute="bottom" id="Nhz-9D-UE2"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ald-ta-JGT" secondAttribute="trailingMargin" constant="20" id="SvG-xF-7d5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MER-1c-i0e" secondAttribute="trailing" constant="8" id="MrP-kD-Z3d"/>
                                                 <constraint firstItem="MER-1c-i0e" firstAttribute="top" secondItem="YsD-rA-Zsx" secondAttribute="topMargin" id="koU-Dd-UZg"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -340,7 +334,6 @@
         <image name="entertainment" width="112" height="112"/>
         <image name="general" width="177" height="219"/>
         <image name="health" width="112" height="112"/>
-        <image name="home" width="22" height="22"/>
         <image name="science-1" width="128" height="128"/>
         <image name="sport" width="128" height="128"/>
         <image name="tecnology" width="96" height="96"/>

@@ -99,6 +99,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         cell.headlineLabel.text = articlesArray![indexPath.row].title
         // cell.sourceLabel.text = articlesArray![indexPath.row].sourceName
         
+        /*
         if(articlesArray![indexPath.row].imageData == nil)
         {
             // cell.articleImageView.image = UIImage(named: "No image available")
@@ -129,6 +130,8 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         {
             // cell.articleImageView.image = UIImage(data: articlesArray![indexPath.row].imageData!)
         }
+ 
+ */
         return cell
     }
     
