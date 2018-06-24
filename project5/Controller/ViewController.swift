@@ -80,10 +80,13 @@ class ViewController: UIViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let controller: ArticleTableViewController = segue.destination as! ArticleTableViewController
+        if(segue.identifier == "segueToArticleTable")
+        {
+            let controller: ArticleTableViewController = segue.destination as! ArticleTableViewController
         
         
-        controller.category = self.category
+            controller.category = self.category
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y1I-4Q-G8v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fQM-ni-945">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -109,7 +109,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tXx-th-a9o"/>
+                    <navigationItem key="navigationItem" id="tXx-th-a9o">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="ZZE-DZ-LtA">
+                            <connections>
+                                <segue destination="fQM-ni-945" kind="show" id="ARu-MT-uYG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="buttonBusiness" destination="6Gy-C0-deA" id="phu-bK-eWc"/>
                         <outlet property="buttonEntertainment" destination="1tv-xv-anW" id="Mdk-Mi-Gec"/>
@@ -123,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="116"/>
+            <point key="canvasLocation" x="2084" y="968"/>
         </scene>
         <!--Article Table View Controller-->
         <scene sceneID="eEE-86-mjM">
@@ -212,7 +218,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hE-Gd-tpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="116.49175412293854"/>
+            <point key="canvasLocation" x="3052" y="985"/>
+        </scene>
+        <!--News Application-->
+        <scene sceneID="izM-Kt-pmY">
+            <objects>
+                <viewController id="i3p-n7-u89" customClass="InitialViewController" customModule="project5" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6MA-7X-T1J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-9v-Ua2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOF-JJ-e0C">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arW-jK-rkU">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="Favorite"/>
+                                                <connections>
+                                                    <action selector="favoriteButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="Tce-6l-N3N"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Z-kn-80m">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="301.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="Hot News"/>
+                                                <connections>
+                                                    <action selector="hotNewsButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ktB-Ue-PSn"/>
+                                                    <segue destination="Y1I-4Q-G8v" kind="show" id="KXx-2b-qfa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PQ3-NP-kD8">
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6V-wg-CQM">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="Share"/>
+                                                <connections>
+                                                    <action selector="shareButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="Dhd-cV-5KH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-A2-apb">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="301.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="Reading List"/>
+                                                <connections>
+                                                    <action selector="readingListButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ZPb-Kj-nIF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hAI-Yu-9pb" firstAttribute="trailing" secondItem="PgS-9v-Ua2" secondAttribute="trailing" id="6DR-u1-XR7"/>
+                            <constraint firstItem="PgS-9v-Ua2" firstAttribute="top" secondItem="hAI-Yu-9pb" secondAttribute="top" id="Adw-Wc-eRF"/>
+                            <constraint firstItem="PgS-9v-Ua2" firstAttribute="leading" secondItem="hAI-Yu-9pb" secondAttribute="leading" id="yEW-tb-gVo"/>
+                            <constraint firstItem="hAI-Yu-9pb" firstAttribute="bottom" secondItem="PgS-9v-Ua2" secondAttribute="bottom" id="yeW-yX-6SF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hAI-Yu-9pb"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="News Application" id="qxn-a9-8xa"/>
+                    <connections>
+                        <outlet property="favoriteButton" destination="arW-jK-rkU" id="xkR-8i-EC5"/>
+                        <outlet property="hotNewsButton" destination="r2Z-kn-80m" id="SHo-VW-5Yu"/>
+                        <outlet property="readingListButton" destination="Xid-A2-apb" id="H7F-XC-w7q"/>
+                        <outlet property="shareButton" destination="n6V-wg-CQM" id="Itq-1U-K3R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aww-yA-lNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3758" y="176"/>
         </scene>
         <!--Article Display View Controller-->
         <scene sceneID="uLK-fN-e6u">
@@ -259,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72a-xj-hFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2738" y="114"/>
+            <point key="canvasLocation" x="3982" y="985"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yhY-iG-Ozj">
@@ -277,7 +361,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGA-4B-UMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31" y="116"/>
+            <point key="canvasLocation" x="1094" y="967"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6TJ-RU-o3I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fQM-ni-945" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xbv-QD-9Bs">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="i3p-n7-u89" kind="relationship" relationship="rootViewController" id="895-MO-Qf2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0J-Mi-ehr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2862" y="176"/>
         </scene>
     </scenes>
     <resources>
