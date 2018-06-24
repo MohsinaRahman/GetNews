@@ -21,6 +21,16 @@ class ArticleDisplayViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        if(isArticleInfavorite())
+        {
+            favButton.title = "Unfavorite"
+        }
+        else
+        {
+            favButton.title = "Favorite"
+        }
+        
 
         // Do any additional setup after loading the view.
         loadURL()
@@ -37,13 +47,34 @@ class ArticleDisplayViewController: UIViewController
     }
     @IBAction func favButtonPressed(_ sender: Any)
     {
-        if(ArticleDataSource.sharedInstance().articleFavoriteArray == nil)
+        if(!isArticleInfavorite())
         {
-            ArticleDataSource.sharedInstance().articleFavoriteArray = [article!]
+            if(ArticleDataSource.sharedInstance().articleFavoriteArray == nil)
+            {
+                ArticleDataSource.sharedInstance().articleFavoriteArray = [article!]
+            }
+            else
+            {
+                ArticleDataSource.sharedInstance().articleFavoriteArray?.append(article!)
+            }
+            
+            favButton.title = "Unfavorite"
         }
         else
         {
-            ArticleDataSource.sharedInstance().articleFavoriteArray?.append(article!)
+            var index = 0
+            for article in ArticleDataSource.sharedInstance().articleFavoriteArray!
+            {
+                if(article.url == self.article?.url)
+                {
+                    break
+                }
+                index = index + 1
+            }
+            
+            ArticleDataSource.sharedInstance().articleFavoriteArray!.remove(at: index)
+            
+            favButton.title = "Favorite"
         }
     }
     
@@ -72,6 +103,22 @@ class ArticleDisplayViewController: UIViewController
                 ArticleDataSource.sharedInstance().articleSharedArray?.append(article!)
             }
         }
+    }
+    
+    func isArticleInfavorite()->Bool
+    {
+        if(ArticleDataSource.sharedInstance().articleFavoriteArray != nil)
+        {
+            for article in ArticleDataSource.sharedInstance().articleFavoriteArray!
+            {
+                if(article.url! == self.article?.url!)
+                {
+                    return true
+                }
+            }
+        }
+        
+        return false
     }
     
 }
