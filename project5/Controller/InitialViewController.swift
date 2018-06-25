@@ -14,6 +14,7 @@ class InitialViewController: UIViewController
     @IBOutlet weak var hotNewsButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var topicsearchButton: UIButton!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     override func viewDidLoad()
     {
@@ -51,8 +52,11 @@ class InitialViewController: UIViewController
         self.navigationController!.pushViewController(controller, animated: true)
     }
     
-    
-    
-  
-    
+    @IBAction func settingsButtonPressed(_ sender: Any)
+    {
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        
+        self.navigationController!.pushViewController(controller, animated: true)
+    }
+
 }

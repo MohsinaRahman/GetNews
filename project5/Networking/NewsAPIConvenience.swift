@@ -18,7 +18,7 @@ extension NewsAPIClient
         
         // Add the method
         parameters[Constants.Parameters.categoryKey] = category as AnyObject
-        parameters[Constants.Parameters.countryKey] = "us" as AnyObject
+        parameters[Constants.Parameters.countryKey] = Settings.sharedInstance().getCountryCode() as AnyObject
     
         
         URL = buildURL(host: Constants.ApiHost, apiPath: Constants.ApiPathTopHeadlines, parameters: parameters)

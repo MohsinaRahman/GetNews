@@ -125,6 +125,43 @@
             </objects>
             <point key="canvasLocation" x="2478" y="176"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Q0b-Yu-kGd">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="rSy-14-84x" customClass="SettingsViewController" customModule="project5" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dBI-NL-GXQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1d-vm-OuM">
+                                <rect key="frame" x="0.0" y="73" width="375" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLM-rw-v5N">
+                                <rect key="frame" x="0.0" y="40" width="375" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kLM-rw-v5N" firstAttribute="leading" secondItem="5qV-iy-s5N" secondAttribute="leading" id="Vrk-F6-6Oe"/>
+                            <constraint firstItem="Z1d-vm-OuM" firstAttribute="leading" secondItem="5qV-iy-s5N" secondAttribute="leading" id="VvU-ez-ftd"/>
+                            <constraint firstItem="Z1d-vm-OuM" firstAttribute="trailing" secondItem="5qV-iy-s5N" secondAttribute="trailing" id="ZVa-Ey-4dD"/>
+                            <constraint firstItem="5qV-iy-s5N" firstAttribute="trailing" secondItem="kLM-rw-v5N" secondAttribute="trailing" id="idN-rk-lGQ"/>
+                            <constraint firstItem="Z1d-vm-OuM" firstAttribute="top" secondItem="kLM-rw-v5N" secondAttribute="bottom" id="qIe-WP-p0n"/>
+                            <constraint firstItem="kLM-rw-v5N" firstAttribute="top" secondItem="5qV-iy-s5N" secondAttribute="top" constant="20" id="qWL-98-akR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5qV-iy-s5N"/>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="Z1d-vm-OuM" id="BVp-P3-09h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLm-7A-dZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="943"/>
+        </scene>
         <!--Article Table View Controller-->
         <scene sceneID="eEE-86-mjM">
             <objects>
@@ -251,10 +288,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hAI-Yu-9pb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="News Application" id="qxn-a9-8xa"/>
+                    <navigationItem key="navigationItem" title="News Application" id="qxn-a9-8xa">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Itg-qh-SfF">
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="i3p-n7-u89" id="dTZ-77-KQd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favoriteButton" destination="arW-jK-rkU" id="xkR-8i-EC5"/>
                         <outlet property="hotNewsButton" destination="r2Z-kn-80m" id="SHo-VW-5Yu"/>
+                        <outlet property="settingsButton" destination="Itg-qh-SfF" id="nhf-zs-peB"/>
                         <outlet property="shareButton" destination="n6V-wg-CQM" id="Itq-1U-K3R"/>
                         <outlet property="topicsearchButton" destination="Xid-A2-apb" id="H7F-XC-w7q"/>
                     </connections>

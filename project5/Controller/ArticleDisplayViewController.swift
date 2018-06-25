@@ -11,7 +11,6 @@ import WebKit
 
 class ArticleDisplayViewController: UIViewController
 {
-
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBOutlet weak var shaButton: UIBarButtonItem!
