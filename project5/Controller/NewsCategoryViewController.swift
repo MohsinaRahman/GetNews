@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class NewsCategoryViewController: UIViewController
 {
     @IBOutlet weak var buttonGeneral: UIButton!
     @IBOutlet weak var buttonSports: UIButton!

@@ -33,7 +33,7 @@ class InitialViewController: UIViewController
     
     @IBAction func hotNewsButtonPressed(_ sender: Any)
     {
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "NewsCategoryViewController") as! ViewController
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "NewsCategoryViewController") as! NewsCategoryViewController
         
         self.navigationController!.pushViewController(controller, animated: true)
     }
