@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Article" representedClassName="Article" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="publishedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlToImage" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="articleList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ArticleList" inverseName="articles" inverseEntity="ArticleList" syncable="YES"/>
+        <relationship name="shares" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SharedArticle" inverseName="article" inverseEntity="SharedArticle" syncable="YES"/>
+    </entity>
+    <entity name="ArticleList" representedClassName="ArticleList" syncable="YES" codeGenerationType="class">
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastDownloaded" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Article" inverseName="articleList" inverseEntity="Article" syncable="YES"/>
+    </entity>
+    <entity name="SharedArticle" representedClassName="SharedArticle" syncable="YES" codeGenerationType="class">
+        <attribute name="lastShareDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="article" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Article" inverseName="shares" inverseEntity="Article" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Article" positionX="-675" positionY="-904" width="128" height="193"/>
+        <element name="ArticleList" positionX="-1089" positionY="-445" width="128" height="105"/>
+        <element name="SharedArticle" positionX="-218" positionY="-423" width="128" height="75"/>
+    </elements>
+</model>

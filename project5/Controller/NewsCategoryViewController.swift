@@ -10,6 +10,8 @@ import UIKit
 
 class NewsCategoryViewController: UIViewController
 {
+    var dataController:DataController!
+    
     @IBOutlet weak var buttonGeneral: UIButton!
     @IBOutlet weak var buttonSports: UIButton!
     @IBOutlet weak var buttonBusiness: UIButton!
@@ -37,55 +39,55 @@ class NewsCategoryViewController: UIViewController
 
     @IBAction func buttonSportsPressed(_ sender: Any)
     {
-        self.category = "sports"
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        transitionToArticleTable(category: "sports")
     }
     
     @IBAction func buttonGeneralPressed(_ sender: Any)
     {
-        self.category = "general"
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        transitionToArticleTable(category: "general")
     }
     
     @IBAction func buttonBusinessPressed(_ sender: Any)
     {
-        self.category = "business"
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        transitionToArticleTable(category: "business")
     }
     
     @IBAction func buttonEntertainmentPressed(_ sender: Any)
     {
-        self.category = "entertainment"
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        transitionToArticleTable(category: "entertainment")
+
     }
     
     @IBAction func buttonHealthPressed(_ sender: Any)
     {
-        self.category = "health"
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        transitionToArticleTable(category: "health")
     }
     
     @IBAction func buttonSciencePressed(_ sender: Any)
     {
-        self.category = "science"
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        transitionToArticleTable(category: "science")
     }
     
     @IBAction func buttonTechnologyPressed(_ sender: Any)
     {
-        self.category = "technology"
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        transitionToArticleTable(category: "technology")
     }
     
+    
+    func transitionToArticleTable(category: String)
+    {
+        self.category = category
+        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if(segue.identifier == "segueToArticleTable")
         {
             let controller: ArticleTableViewController = segue.destination as! ArticleTableViewController
-        
-        
+            
             controller.category = self.category
+            controller.dataController = self.dataController
         }
     }
 }

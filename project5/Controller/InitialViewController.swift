@@ -10,6 +10,8 @@ import UIKit
 
 class InitialViewController: UIViewController
 {
+    var dataController:DataController!
+    
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var hotNewsButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -26,6 +28,7 @@ class InitialViewController: UIViewController
     {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleTableViewController") as! ArticleTableViewController
         
+        controller.dataController = dataController
         controller.category = "favorite"
         
         self.navigationController!.pushViewController(controller, animated: true)
@@ -34,6 +37,8 @@ class InitialViewController: UIViewController
     @IBAction func hotNewsButtonPressed(_ sender: Any)
     {
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "NewsCategoryViewController") as! NewsCategoryViewController
+        
+        controller.dataController = dataController
         
         self.navigationController!.pushViewController(controller, animated: true)
     }

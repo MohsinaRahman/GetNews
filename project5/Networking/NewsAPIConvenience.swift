@@ -10,7 +10,7 @@ import Foundation
 
 extension NewsAPIClient
 {
-    func getArticlesForCategory(category: String, completionHandler: @escaping (_ success: Bool, _ articles: [Article]?, _ errorString: String?)->Void)
+    func getArticlesForCategory(category: String, countryCode: String, completionHandler: @escaping (_ success: Bool, _ articlesArrayOfDictionary: [[String: AnyObject]]?, _ errorString: String?)->Void)
     {
         // Build URL
         let URL : URL
@@ -18,15 +18,15 @@ extension NewsAPIClient
         
         // Add the method
         parameters[Constants.Parameters.categoryKey] = category as AnyObject
-        parameters[Constants.Parameters.countryKey] = Settings.sharedInstance().getCountryCode() as AnyObject
-    
+        parameters[Constants.Parameters.countryKey] = countryCode as AnyObject
+        
         
         URL = buildURL(host: Constants.ApiHost, apiPath: Constants.ApiPathTopHeadlines, parameters: parameters)
         print(URL.absoluteString)
-       
+        
         let headers: [String: String] =
-        [
-            Constants.HeaderAPIKey:Constants.HeaderAPIValue
+            [
+                Constants.HeaderAPIKey:Constants.HeaderAPIValue
         ]
         let request = configureRequest(url: URL, methodType: "GET", headers: headers, jsonBody: nil)
         
@@ -50,17 +50,9 @@ extension NewsAPIClient
                 return
             }
             
-            print(results!)
             let articlesArrayOfDictionary = results?["articles"] as! [[String: AnyObject]]
             
-            var articleArray = [Article]()
-            for item in articlesArrayOfDictionary
-            {
-                let article = Article(article: item)
-                articleArray.append(article)
-            }
-            
-            completionHandler(true,articleArray, nil)
+            completionHandler(true, articlesArrayOfDictionary, nil)
         }
     }
     
