@@ -328,15 +328,15 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         if completed
         {
             self.dataController.backgroundContext.perform
-                {
-                    
-                    let s = SharedArticle(context: self.dataController.backgroundContext)
-                    s.lastShareDate = Date()
-                    s.article = Article(context: self.dataController.backgroundContext)
-                    s.article?.setProperties(article: self.sharedArticle!)
-                    
-                    print("Saving Shared Article")
-                    try? self.dataController.backgroundContext.save()
+            {
+                
+                let s = SharedArticle(context: self.dataController.backgroundContext)
+                s.lastShareDate = Date()
+                s.article = Article(context: self.dataController.backgroundContext)
+                s.article?.setProperties(article: self.sharedArticle!)
+                
+                print("Saving Shared Article")
+                try? self.dataController.backgroundContext.save()
             }
         }
     }
@@ -378,7 +378,7 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
         let fetchRequest:NSFetchRequest<ArticleList> = ArticleList.fetchRequest()
         
         // Set up the predicate
-        let countryCode = (self.category == "favorite") ? "n/a" : Settings.sharedInstance().getCountryCode()
+        let countryCode = (self.category == "favorite" || self.category == "share") ? "n/a" : Settings.sharedInstance().getCountryCode()
         let predicate = NSPredicate(format: "categoryName = %@ AND countryCode = %@", self.category, countryCode)
         fetchRequest.predicate = predicate
         
@@ -542,22 +542,22 @@ extension ArticleTableViewController
         print("Update from background thread")
         
         dataController.viewContext.perform
+        {
+            do
             {
-                do
-                {
-                    print("performing fetch")
-                    try self.fetchedArticleResultsController.performFetch()
-                    print("finished performing fetch")
-                }
-                catch
-                {
-                    fatalError("The Article fetch could not be performed: \(error.localizedDescription)")
-                }
+                print("performing fetch")
+                try self.fetchedArticleResultsController.performFetch()
+                print("finished performing fetch")
+            }
+            catch
+            {
+                fatalError("The Article fetch could not be performed: \(error.localizedDescription)")
+            }
         }
         
         DispatchQueue.main.async
-            {
-                self.tableView.reloadData()
+        {
+            self.tableView.reloadData()
         }
     }
 }

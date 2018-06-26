@@ -24,6 +24,8 @@
 		CA96C13F20C09C8F00E4F486 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA96C13D20C09C8F00E4F486 /* Main.storyboard */; };
 		CA96C14120C09C9000E4F486 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA96C14020C09C9000E4F486 /* Assets.xcassets */; };
 		CA96C14420C09C9000E4F486 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA96C14220C09C9000E4F486 /* LaunchScreen.storyboard */; };
+		CAD0399A20E24C73006A4EE7 /* SharedArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0399920E24C73006A4EE7 /* SharedArticleViewController.swift */; };
+		CAD0399C20E2503C006A4EE7 /* SharedArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0399B20E2503C006A4EE7 /* SharedArticleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		CA96C14020C09C9000E4F486 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA96C14320C09C9000E4F486 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA96C14520C09C9000E4F486 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAD0399920E24C73006A4EE7 /* SharedArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedArticleViewController.swift; sourceTree = "<group>"; };
+		CAD0399B20E2503C006A4EE7 /* SharedArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedArticleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				CA6A799B20DCCFD50092D8D9 /* ArticleTableViewController.swift */,
 				CA6A79A020DF0C170092D8D9 /* ArticleDisplayViewController.swift */,
 				CA87CDCF20E0575300C21932 /* SettingsViewController.swift */,
+				CAD0399920E24C73006A4EE7 /* SharedArticleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6A799E20DCE4660092D8D9 /* ArticleTableViewCell.swift */,
+				CAD0399B20E2503C006A4EE7 /* SharedArticleTableViewCell.swift */,
 			);
 			path = "View ";
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			files = (
 				CA6A799020DB9C8D0092D8D9 /* NewsAPIClient.swift in Sources */,
 				CA6A799420DCA2800092D8D9 /* NewsAPIConvenience.swift in Sources */,
+				CAD0399C20E2503C006A4EE7 /* SharedArticleTableViewCell.swift in Sources */,
 				CA87CDD220E063B500C21932 /* Settings.swift in Sources */,
 				CA6A79A120DF0C170092D8D9 /* ArticleDisplayViewController.swift in Sources */,
 				CA6A799220DC9B7D0092D8D9 /* NewsAPIConstants.swift in Sources */,
@@ -216,6 +223,7 @@
 				CA96C13A20C09C8F00E4F486 /* AppDelegate.swift in Sources */,
 				CA6A799C20DCCFD50092D8D9 /* ArticleTableViewController.swift in Sources */,
 				CA87CDD720E221F800C21932 /* DataController.swift in Sources */,
+				CAD0399A20E24C73006A4EE7 /* SharedArticleViewController.swift in Sources */,
 				CA87CDD020E0575300C21932 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

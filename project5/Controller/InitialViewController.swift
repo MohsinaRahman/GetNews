@@ -45,14 +45,14 @@ class InitialViewController: UIViewController
     
     @IBAction func topicSearchbuttonPressed(_ sender: Any)
     {
-        print("Reading list pressed")
+        print("Topic search pressed")
     }
     
     @IBAction func shareButtonPressed(_ sender: Any)
     {
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleTableViewController") as! ArticleTableViewController
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SharedArticleViewController") as! SharedArticleViewController
         
-        controller.category = "share"
+        controller.dataController = dataController
         
         self.navigationController!.pushViewController(controller, animated: true)
     }

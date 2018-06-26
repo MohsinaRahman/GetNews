@@ -100,16 +100,17 @@ class ArticleDisplayViewController: UIViewController
     {
         if completed
         {
-            /*
-             if(ArticleDataSource.sharedInstance().articleSharedArray == nil)
-             {
-             ArticleDataSource.sharedInstance().articleSharedArray = [article!]
-             }
-             else
-             {
-             ArticleDataSource.sharedInstance().articleSharedArray?.append(article!)
-             }
-             */
+            self.dataController.backgroundContext.perform
+            {
+                
+                let s = SharedArticle(context: self.dataController.viewContext)
+                s.lastShareDate = Date()
+                s.article = Article(context: self.dataController.viewContext)
+                s.article?.setProperties(article: self.article!)
+                
+                print("Saving Shared Article")
+                try? self.dataController.viewContext.save()
+            }
         }
     }
     
@@ -204,8 +205,6 @@ extension ArticleDisplayViewController: NSFetchedResultsControllerDelegate
         do
         {
             try fetchedSharedArticleResultsController.performFetch()
-            
-            
         }
         catch
         {

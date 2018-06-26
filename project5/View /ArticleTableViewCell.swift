@@ -13,6 +13,4 @@ class ArticleTableViewCell: UITableViewCell
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var headlineLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
-
-
 }
