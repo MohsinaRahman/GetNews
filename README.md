@@ -7,3 +7,8 @@ Upon launching the GetNews app, the user is presented with the following screen:
 
 
 ![alt text](https://github.com/MohsinaRahman/GetNews/blob/master/initial_screen.png "Initial Screen")
+
+user can go to the next page by tapping on of the button.Top headlines button represents news based on the categories. favorite list saved the article for future reading. shared list shows the shared article.
+
+
+![alt text](https://github.com/MohsinaRahman/GetNews/blob/master/initial_screen.png "newsCategories")
