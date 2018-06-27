@@ -20,7 +20,10 @@ class InitialViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
+        hotNewsButton.imageView?.contentMode = .scaleAspectFit
+        shareButton.imageView?.contentMode = .scaleAspectFit
+        favoriteButton.imageView?.contentMode = .scaleAspectFit
     }
 
     @IBAction func favoriteButtonPressed(_ sender: Any)

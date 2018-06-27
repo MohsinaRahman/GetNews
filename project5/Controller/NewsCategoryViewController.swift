@@ -33,7 +33,6 @@ class NewsCategoryViewController: UIViewController
         buttonHealth.imageView?.contentMode = .scaleAspectFit
         buttonScience.imageView?.contentMode = .scaleAspectFit
         buttonTechnology.imageView?.contentMode = .scaleAspectFit
-
     }
     
 
