@@ -483,7 +483,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zC-6S-tKF">
-                                <rect key="frame" x="0.0" y="20" width="320" height="204"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -491,10 +491,10 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duS-js-eBn">
-                                <rect key="frame" x="0.0" y="224" width="320" height="256"/>
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="FUe-hr-lNb"/>
-                                    <barButtonItem image="sport" id="Ifn-hf-iL5">
+                                    <barButtonItem image="star_unselected" id="Ifn-hf-iL5">
                                         <connections>
                                             <action selector="favButtonPressed:" destination="tt6-9K-g3b" id="EdV-LU-pJZ"/>
                                         </connections>
@@ -562,6 +562,6 @@
         <image name="news_by_category" width="150" height="150"/>
         <image name="no_image_available" width="200" height="158"/>
         <image name="share_list" width="150" height="150"/>
-        <image name="sport" width="256" height="256"/>
+        <image name="star_unselected" width="22" height="22"/>
     </resources>
 </document>
