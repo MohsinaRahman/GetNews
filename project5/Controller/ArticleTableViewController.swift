@@ -16,6 +16,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     var fetchedArticleResultsController:NSFetchedResultsController<Article>!
     var fetchedSharedArticleResultsController:NSFetchedResultsController<SharedArticle>!
     var saveObserverToken: Any?
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     var sharedArticle: Article?
     var category:String = ""
@@ -72,6 +73,10 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
             self.navigationItem.title = "Other Headlines"
         }
         
+        activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        activityIndicator.color = UIColor.blue
+        self.view.addSubview(activityIndicator)
+        
         if(category == "favorite")
         {
             
@@ -93,6 +98,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         setupArticleListFetchedResultsController()
         setupArticleFetchedResultsController()
         setupSharedArticleFetchedResultsController()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool)
@@ -102,6 +108,9 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     
     func getFreshNewsArticles()
     {
+        activityIndicator.startAnimating()
+        view.alpha = CGFloat(0.5)
+        
         NewsAPIClient.sharedInstance().getArticlesForCategory(category: self.category, countryCode: Settings.sharedInstance().getCountryCode())
         {
             (_ success: Bool, _ articlesArrayOfDictionary: [[String: AnyObject]]?, _ errorString: String?)->Void in
@@ -144,9 +153,22 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                     print("Saving freshnews results")
                     try? self.dataController.backgroundContext.save()
                 }
+                
+                DispatchQueue.main.async
+                {
+                    self.activityIndicator.stopAnimating()
+                    self.view.alpha = CGFloat(1.0)
+                }
+                
+                
             }
             else
             {
+                DispatchQueue.main.async
+                {
+                    self.activityIndicator.stopAnimating()
+                    self.view.alpha = CGFloat(1.0)
+                }
                 self.showError(message: errorString!)
             }
         }
