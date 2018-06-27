@@ -109,45 +109,45 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
             if(success)
             {
                 self.dataController.backgroundContext.perform
+                {
+                    // Get the context to the background object
+                    let articlelistID = self.articleList.objectID
+                    let articleList1 = self.dataController.backgroundContext.object(with: articlelistID) as? ArticleList
+                    articleList1?.lastDownloaded = Date()
+                    
+                    // Create new articles that are new
+                    for dictionary in articlesArrayOfDictionary!
                     {
-                        // Get the context to the background object
-                        let articlelistID = self.articleList.objectID
-                        let articleList1 = self.dataController.backgroundContext.object(with: articlelistID) as? ArticleList
-                        articleList1?.lastDownloaded = Date()
-                        
-                        // Create new articles that are new
-                        for dictionary in articlesArrayOfDictionary!
+                        let urlString = (dictionary[NewsAPIClient.Constants.JSONResponseKeys.url] as? String)!
+                        if(!self.isArticleAlreadyInArticleList(url: urlString, articleList: articleList1!))
                         {
-                            let urlString = (dictionary[NewsAPIClient.Constants.JSONResponseKeys.url] as? String)!
-                            if(!self.isArticleAlreadyInArticleList(url: urlString, articleList: articleList1!))
-                            {
-                                // Create the article
-                                let article = Article(context: self.dataController.backgroundContext)
-                                // Set the properties of the article based on the dictionary
-                                article.setProperties(article: dictionary)
-                                article.articleList = articleList1
-                                print("Created article with URL: \(article.url!)")
-                            }
+                            // Create the article
+                            let article = Article(context: self.dataController.backgroundContext)
+                            // Set the properties of the article based on the dictionary
+                            article.setProperties(article: dictionary)
+                            article.articleList = articleList1
+                            print("Created article with URL: \(article.url!)")
                         }
-                        
-                        // Delete old articles that are no longer there
-                        let itemsToDelete = self.getArticlesToDelete(oldArticleList: articleList1!, newArticlesArrayOfDictionary: articlesArrayOfDictionary)
-                        for objectID in itemsToDelete
-                        {
-                            let articleToDelete = self.dataController.backgroundContext.object(with: objectID) as! Article
-                            print("Deleted an old article: \(articleToDelete.url!)")
-                            articleList1?.removeFromArticles(articleToDelete)
-                            self.dataController.backgroundContext.delete(articleToDelete)
-                        }
-                        
-                        // Save on the background context
-                        print("Saving freshnews results")
-                        try? self.dataController.backgroundContext.save()
+                    }
+                    
+                    // Delete old articles that are no longer there
+                    let itemsToDelete = self.getArticlesToDelete(oldArticleList: articleList1!, newArticlesArrayOfDictionary: articlesArrayOfDictionary)
+                    for objectID in itemsToDelete
+                    {
+                        let articleToDelete = self.dataController.backgroundContext.object(with: objectID) as! Article
+                        print("Deleted an old article: \(articleToDelete.url!)")
+                        articleList1?.removeFromArticles(articleToDelete)
+                        self.dataController.backgroundContext.delete(articleToDelete)
+                    }
+                    
+                    // Save on the background context
+                    print("Saving freshnews results")
+                    try? self.dataController.backgroundContext.save()
                 }
             }
             else
             {
-                print("failure")
+                self.showError(message: errorString!)
             }
         }
     }

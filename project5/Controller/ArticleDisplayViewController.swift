@@ -10,11 +10,13 @@ import UIKit
 import WebKit
 import CoreData
 
-class ArticleDisplayViewController: UIViewController
+class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
 {
     var dataController:DataController!
     var fetchedFavoriteArticleListResultsController:NSFetchedResultsController<ArticleList>!
     var fetchedSharedArticleResultsController:NSFetchedResultsController<SharedArticle>!
+    
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var favButton: UIBarButtonItem!
@@ -30,7 +32,12 @@ class ArticleDisplayViewController: UIViewController
         setupSharedArticleFetchedResultsController()
         
         updateControls()
+        activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
+        activityIndicator.color = UIColor.blue
+        self.view.addSubview(activityIndicator)
         
+        webView.navigationDelegate = self
+        print("Started Loading")
         // Do any additional setup after loading the view.
         loadURL()
     }
@@ -41,9 +48,25 @@ class ArticleDisplayViewController: UIViewController
         {
             let url = URL(string: article!.url!)
             let request = URLRequest(url:url!)
+            activityIndicator.startAnimating()
+            view.alpha = CGFloat(0.5)
             webView.load(request)
         }
     }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!)
+    {
+        print("Loading finished")
+        view.alpha = CGFloat(1.0)
+        activityIndicator.stopAnimating()
+        
+    }
+    
+    func webViewWebContentProcessDidTerminate(_ webView: WKWebView)
+    {
+        print("Load finished 2")
+    }
+    
     @IBAction func favButtonPressed(_ sender: Any)
     {
         if(self.fetchedFavoriteArticleListResultsController.fetchedObjects!.count > 0)
