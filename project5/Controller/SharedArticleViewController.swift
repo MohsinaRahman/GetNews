@@ -24,7 +24,7 @@ class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableV
         sharedArticleTableView.rowHeight = UITableViewAutomaticDimension
         sharedArticleTableView.estimatedRowHeight = 140
         
-        let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home"), style: .plain, target: self, action: #selector(goHome))
+        let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home_1"), style: .plain, target: self, action: #selector(goHome))
         navigationItem.rightBarButtonItems = [buttonHome]
         
         self.navigationItem.title = "Shared List"
@@ -61,7 +61,7 @@ class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableV
         // Set the image
         if(article.imageData == nil)
         {
-            cell.sharedArticleImageView.image = UIImage(named: "No image available")
+            cell.sharedArticleImageView.image = UIImage(named: "no_image_available")
         }
         else
         {

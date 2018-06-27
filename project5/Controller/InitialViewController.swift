@@ -15,7 +15,6 @@ class InitialViewController: UIViewController
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var hotNewsButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var topicsearchButton: UIButton!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     override func viewDidLoad()

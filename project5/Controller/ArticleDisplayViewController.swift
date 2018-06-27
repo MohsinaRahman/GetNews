@@ -159,7 +159,7 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
     
     func updateControls()
     {
-        favButton.title = isArticleInfavorite() ? "Unfavorite" : "Favorite"
+        favButton.image = isArticleInfavorite() ? UIImage(named: "star_selected") : UIImage(named: "star_unselected")
     }
     
 }

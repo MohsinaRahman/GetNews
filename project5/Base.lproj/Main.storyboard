@@ -77,7 +77,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exX-YG-G24">
                                                 <rect key="frame" x="171.5" y="0.0" width="171.5" height="157.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Science" image="science-1"/>
+                                                <state key="normal" title="Science" image="science"/>
                                                 <connections>
                                                     <action selector="buttonSciencePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q90-AR-GKq"/>
                                                 </connections>
@@ -92,6 +92,7 @@
                                     <constraint firstAttribute="height" constant="150" id="7Sz-YK-PUP"/>
                                     <constraint firstAttribute="width" constant="150" id="Kie-At-Hqy"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="General" image="general"/>
                                 <connections>
                                     <action selector="buttonGeneralPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xvJ-SL-1Gw"/>
@@ -146,7 +147,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6js-NJ-SGH" userLabel="Horizontal Stack View">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No image available" translatesAutoresizingMaskIntoConstraints="NO" id="hjA-5I-kGW">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_available" translatesAutoresizingMaskIntoConstraints="NO" id="hjA-5I-kGW">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="127.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="128" id="WOm-Va-F5m"/>
@@ -282,7 +283,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ziz-jW-cfX" userLabel="Horizonal Stack View">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No image available" translatesAutoresizingMaskIntoConstraints="NO" id="c2R-ea-8EU">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_available" translatesAutoresizingMaskIntoConstraints="NO" id="c2R-ea-8EU">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="127.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="128" id="NwJ-2n-fNF"/>
@@ -433,7 +434,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zC-6S-tKF">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="391"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -441,10 +442,10 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duS-js-eBn">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="411" width="375" height="256"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="FUe-hr-lNb"/>
-                                    <barButtonItem title="Favorite" id="Ifn-hf-iL5">
+                                    <barButtonItem image="sport" id="Ifn-hf-iL5">
                                         <connections>
                                             <action selector="favButtonPressed:" destination="tt6-9K-g3b" id="EdV-LU-pJZ"/>
                                         </connections>
@@ -501,12 +502,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="No image available" width="200" height="158"/>
         <image name="business" width="256" height="256"/>
         <image name="entertainment" width="256" height="256"/>
         <image name="general" width="256" height="256"/>
         <image name="health" width="256" height="256"/>
-        <image name="science-1" width="256" height="256"/>
+        <image name="no_image_available" width="200" height="158"/>
+        <image name="science" width="256" height="256"/>
         <image name="sport" width="256" height="256"/>
         <image name="tecnology" width="256" height="256"/>
     </resources>

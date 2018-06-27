@@ -36,12 +36,12 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         if(self.category == "favorite" || self.category == "share")
         {
-            let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home"), style: .plain, target: self, action: #selector(goHome))
+            let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home_1"), style: .plain, target: self, action: #selector(goHome))
             navigationItem.rightBarButtonItems = [buttonHome]
         }
         else
         {
-            let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home"), style: .plain, target: self, action: #selector(goHome))
+            let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home_1"), style: .plain, target: self, action: #selector(goHome))
             let buttonRefresh = UIBarButtonItem(image: #imageLiteral(resourceName: "refresh"), style: .plain, target: self, action: #selector(refreshArticles))
             navigationItem.rightBarButtonItems = [buttonHome, buttonRefresh]
         }
@@ -244,7 +244,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         // Set the image
         if(article.imageData == nil)
         {
-            cell.articleImageView.image = UIImage(named: "No image available")
+            cell.articleImageView.image = UIImage(named: "no_image_available")
             
             if(article.urlToImage != nil)
             {
