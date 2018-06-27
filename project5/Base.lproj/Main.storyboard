@@ -370,48 +370,30 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-9v-Ua2">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eOF-JJ-e0C">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arW-jK-rkU">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="Favorite"/>
-                                                <connections>
-                                                    <action selector="favoriteButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="Tce-6l-N3N"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Z-kn-80m">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="301.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="Hot News"/>
-                                                <connections>
-                                                    <action selector="hotNewsButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ktB-Ue-PSn"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PQ3-NP-kD8">
-                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6V-wg-CQM">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="301.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="Share"/>
-                                                <connections>
-                                                    <action selector="shareButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="Dhd-cV-5KH"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-A2-apb">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="301.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="Topic Search"/>
-                                                <connections>
-                                                    <action selector="topicSearchbuttonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ZPb-Kj-nIF"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6V-wg-CQM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Share"/>
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="Dhd-cV-5KH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arW-jK-rkU">
+                                        <rect key="frame" x="0.0" y="201" width="375" height="201"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="favoriteButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="Tce-6l-N3N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Z-kn-80m">
+                                        <rect key="frame" x="0.0" y="402" width="375" height="201"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Hot News"/>
+                                        <connections>
+                                            <action selector="hotNewsButtonPressed:" destination="i3p-n7-u89" eventType="touchUpInside" id="ktB-Ue-PSn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -436,7 +418,6 @@
                         <outlet property="hotNewsButton" destination="r2Z-kn-80m" id="SHo-VW-5Yu"/>
                         <outlet property="settingsButton" destination="Itg-qh-SfF" id="nhf-zs-peB"/>
                         <outlet property="shareButton" destination="n6V-wg-CQM" id="Itq-1U-K3R"/>
-                        <outlet property="topicsearchButton" destination="Xid-A2-apb" id="H7F-XC-w7q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aww-yA-lNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
