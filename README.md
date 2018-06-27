@@ -4,4 +4,6 @@ The purpose of GetNews is to to provide real-time news to the user without havin
 
 # Operation
 Upon launching the GetNews app, the user is presented with the following screen:
+
+
 ![alt text](https://github.com/MohsinaRahman/GetNews/blob/master/initial_screen.png "Initial Screen")
