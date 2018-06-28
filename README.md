@@ -36,7 +36,7 @@ This is the list, where a user can see their favorite list for future reading
 This is the list, where a user can see their shared article
 
 
-![alt text](https://github.com/MohsinaRahman/GetNews/blob/master/shared_page.png "Shared Page")
+![alt text](https://github.com/MohsinaRahman/GetNews/blob/master/shared_page.jpg "Shared Page")
 
 By tapping setting, a user can choose the Country
 
