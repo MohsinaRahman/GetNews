@@ -11,9 +11,11 @@ import CoreData
 
 class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
-    
     var dataController:DataController!
     var fetchedSharedArticleResultsController:NSFetchedResultsController<SharedArticle>!
+    
+    let minimimRowHeight:CGFloat = 128.0
+    let placeHolderImage = UIImage(named: "no_image_available")
 
     @IBOutlet weak var sharedArticleTableView: UITableView!
     
@@ -21,8 +23,7 @@ class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableV
     {
         super.viewDidLoad()
         
-        sharedArticleTableView.rowHeight = UITableViewAutomaticDimension
-        sharedArticleTableView.estimatedRowHeight = 140
+       sharedArticleTableView.rowHeight = UITableViewAutomaticDimension
         
         let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home_1"), style: .plain, target: self, action: #selector(goHome))
         navigationItem.rightBarButtonItems = [buttonHome]
@@ -61,7 +62,7 @@ class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableV
         // Set the image
         if(article.imageData == nil)
         {
-            cell.sharedArticleImageView.image = UIImage(named: "no_image_available")
+            cell.sharedArticleImageView.image = placeHolderImage
         }
         else
         {
@@ -79,6 +80,16 @@ class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableV
         controller.article = fetchedSharedArticleResultsController.object(at: indexPath).article!
         
         self.navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return minimimRowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return max(minimimRowHeight, UITableViewAutomaticDimension)
     }
     
     @objc func goHome()

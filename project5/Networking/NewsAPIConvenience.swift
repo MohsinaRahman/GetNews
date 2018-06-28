@@ -59,14 +59,14 @@ extension NewsAPIClient
     func getImageFromUrl(urlString: String, completionHandler: @escaping (_ success: Bool, _ urlString:String?, _ imageData: Data?, _ errorString: String?)->Void)
     {
         // Build the URL
-        let url = URL(string: urlString)
+        let escapedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = URL(string: escapedURLString!)
         
         guard url != nil else
         {
             completionHandler(false, nil, nil, "Could not parse URL: \(urlString)")
             return
         }
-        
         
         // Start the taks
         let task = URLSession.shared.dataTask(with: url!)

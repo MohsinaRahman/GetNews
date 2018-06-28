@@ -22,6 +22,10 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     var category:String = ""
     var articleList: ArticleList!
     
+    let minimimRowHeight:CGFloat = 128.0
+    let placeHolderImage = UIImage(named: "no_image_available")
+    var downloadedImages : [String: UIImage?] = [String: UIImage?]()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad()
@@ -47,29 +51,29 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         switch(category)
         {
-        case "general":
-            self.navigationItem.title = "General Headlines"
-        case "health":
-            self.navigationItem.title = "Health Headlines"
-        case "business":
-            self.navigationItem.title = "Business Headlines"
-        case "science":
-            self.navigationItem.title = "Science Headlines"
-        case "sports":
-            self.navigationItem.title = "Sports Headlines"
-        case "technology":
-            self.navigationItem.title = "Technology Headlines"
-        case "entertainment":
-            self.navigationItem.title = "Entertainment Headlines"
+            case "general":
+                self.navigationItem.title = "General Headlines"
+            case "health":
+                self.navigationItem.title = "Health Headlines"
+            case "business":
+                self.navigationItem.title = "Business Headlines"
+            case "science":
+                self.navigationItem.title = "Science Headlines"
+            case "sports":
+                self.navigationItem.title = "Sports Headlines"
+            case "technology":
+                self.navigationItem.title = "Technology Headlines"
+            case "entertainment":
+                self.navigationItem.title = "Entertainment Headlines"
             
             
-        case "favorite":
-            self.navigationItem.title = "Favorite List"
-        case "share":
-            self.navigationItem.title = "Shared List"
+            case "favorite":
+                self.navigationItem.title = "Favorite List"
+            case "share":
+                self.navigationItem.title = "Shared List"
             
-        default:
-            self.navigationItem.title = "Other Headlines"
+            default:
+                self.navigationItem.title = "Other Headlines"
         }
         
         activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
@@ -77,10 +81,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         self.view.addSubview(activityIndicator)
         
         if(category == "favorite")
-        {
-            
-        }
-        else if(category == "share")
         {
             
         }
@@ -93,6 +93,8 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
+        
+        downloadedImages.removeAll()
         
         setupArticleListFetchedResultsController()
         setupArticleFetchedResultsController()
@@ -155,8 +157,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                     self.activityIndicator.stopAnimating()
                     self.view.alpha = CGFloat(1.0)
                 }
-                
-                
             }
             else
             {
@@ -230,52 +230,72 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         cell.layer.borderWidth = 0.5
         
         let articleObjectID = fetchedArticleResultsController.object(at: indexPath).objectID
-        var article = fetchedArticleResultsController.object(at: indexPath)
+        let article = fetchedArticleResultsController.object(at: indexPath)
         
         // Set the headline
         cell.headlineLabel.text = article.title
         // Set the source
         cell.sourceLabel.text = article.sourceName
         // Set the image
+        updateImageForCell(cell: cell, cellForRowAt: indexPath, article: article, articleObjectID: articleObjectID)
+ 
+        return cell
+    }
+    
+    func updateImageForCell(cell: ArticleTableViewCell, cellForRowAt indexPath: IndexPath, article: Article, articleObjectID: NSManagedObjectID)
+    {
         if(article.imageData == nil)
         {
-            cell.articleImageView.image = UIImage(named: "no_image_available")
+            cell.articleImageView.image = placeHolderImage
             
             if(article.urlToImage != nil)
             {
-                print("Initiating image download for \(indexPath.row): \(article.urlToImage!)")
                 NewsAPIClient.sharedInstance().getImageFromUrl(urlString: article.urlToImage!)
                 {
                     (_ success: Bool, _ imagePath: String?, _ imageData: Data?, _ errorString: String?)->Void in
                     
-                    if(success)
-                    {
-                        self.dataController.backgroundContext.perform
+                        if(success)
+                        {
+                            self.dataController.backgroundContext.perform
                             {
                                 // Get the article
-                                article = self.dataController.backgroundContext.object(with: articleObjectID) as! Article
-                                // Update the article
-                                article.imageData = imageData
-                                // Save on the background context
-                                print("Saving image data for Article #\(indexPath.row)")
-                                try? self.dataController.backgroundContext.save()
+                                let articleNew = self.dataController.backgroundContext.object(with: articleObjectID) as! Article
+                                
+                                if(articleNew.url == article.url)
+                                {
+                                    // Update the article
+                                    articleNew.imageData = imageData
+                                    // Save on the background context
+                                    try? self.dataController.backgroundContext.save()
+                                }
+                            }
                         }
-                    }
-                    else
-                    {
-                        print("Error downloading image: \(article.urlToImage!)")
-                        print("Error code: \(errorString!)")
-                    }
+                        else
+                        {
+                            print("Error downloading image for article: \(article.title!) => \(article.urlToImage!)")
+                            print("Error code: \(errorString!)")
+                        }
                 }
+            }
+            else
+            {
+                print("Article has no image: \(article.title!)")
             }
         }
         else
         {
-            cell.articleImageView.image = UIImage(data: article.imageData!)
+            if(downloadedImages[article.urlToImage!] != nil)
+            {
+                cell.articleImageView.image = downloadedImages[article.urlToImage!]!
+            }
+            else
+            {
+                downloadedImages[article.urlToImage!] = UIImage(data: article.imageData!)
+                cell.articleImageView.image = downloadedImages[article.urlToImage!]!
+            }
         }
-        
-        return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -314,14 +334,14 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    // MARK: - Dynamic row height for table view cells.
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140.0
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return minimimRowHeight
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return max(128, UITableViewAutomaticDimension)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return max(minimimRowHeight, UITableViewAutomaticDimension)
     }
     
     func contextForShareAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
