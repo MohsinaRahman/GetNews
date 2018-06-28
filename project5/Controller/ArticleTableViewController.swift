@@ -105,6 +105,8 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidDisappear(_ animated: Bool)
     {
         removeSaveNotificationObserver()
+        
+        super.viewDidDisappear(animated)
     }
     
     func getFreshNewsArticles()
