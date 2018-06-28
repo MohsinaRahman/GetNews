@@ -250,6 +250,14 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
             
             if(article.urlToImage != nil)
             {
+                // Create the activity indicator, set it's properties and start animating
+                let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+                cell.addSubview(activityIndicator)
+                activityIndicator.center = CGPoint(x: cell.articleImageView.bounds.size.width/2, y: cell.articleImageView.bounds.size.height/2)
+                activityIndicator.color = UIColor.black
+                activityIndicator.startAnimating()
+                
+                
                 NewsAPIClient.sharedInstance().getImageFromUrl(urlString: article.urlToImage!)
                 {
                     (_ success: Bool, _ imagePath: String?, _ imageData: Data?, _ errorString: String?)->Void in
@@ -275,6 +283,13 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                             print("Error downloading image for article: \(article.title!) => \(article.urlToImage!)")
                             print("Error code: \(errorString!)")
                         }
+                    
+                        DispatchQueue.main.async
+                        {
+                            // Stop the animation of the activity indicator
+                            activityIndicator.stopAnimating()
+                            activityIndicator.removeFromSuperview()
+                        }
                 }
             }
             else
@@ -284,14 +299,17 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         }
         else
         {
-            if(downloadedImages[article.urlToImage!] != nil)
+            DispatchQueue.main.async
             {
-                cell.articleImageView.image = downloadedImages[article.urlToImage!]!
-            }
-            else
-            {
-                downloadedImages[article.urlToImage!] = UIImage(data: article.imageData!)
-                cell.articleImageView.image = downloadedImages[article.urlToImage!]!
+                if(self.downloadedImages[article.urlToImage!] != nil)
+                {
+                    cell.articleImageView.image = self.downloadedImages[article.urlToImage!]!
+                }
+                else
+                {
+                    self.downloadedImages[article.urlToImage!] = UIImage(data: article.imageData!)
+                    cell.articleImageView.image = self.downloadedImages[article.urlToImage!]!
+                }
             }
         }
     }
@@ -529,26 +547,26 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
     {
         switch type
         {
-        case .insert:
-            DispatchQueue.main.async
+            case .insert:
+                DispatchQueue.main.async
                 {
                     self.tableView.reloadData()
-            }
-            break
-        case .delete:
-            DispatchQueue.main.async
+                }
+                break
+            case .delete:
+                DispatchQueue.main.async
                 {
                     self.tableView.reloadData()
-            }
-            break
-        case .update:
-            DispatchQueue.main.async
+                }
+                break
+            case .update:
+                DispatchQueue.main.async
                 {
                     self.tableView.reloadData()
-            }
-            break
-        case .move:
-            break
+                }
+                break
+            case .move:
+                break
         }
     }
 }
