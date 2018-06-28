@@ -60,13 +60,11 @@ extension DataController
     {
         guard interval > 0 else
         {
-            print("cannot set negative autosave interval")
             return
         }
         
         if viewContext.hasChanges
         {
-            print("Auto-saving")
             try? viewContext.save()
         }
         

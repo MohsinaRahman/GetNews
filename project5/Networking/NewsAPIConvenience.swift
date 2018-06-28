@@ -22,7 +22,6 @@ extension NewsAPIClient
         
         
         URL = buildURL(host: Constants.ApiHost, apiPath: Constants.ApiPathTopHeadlines, parameters: parameters)
-        print(URL.absoluteString)
         
         let headers: [String: String] =
             [

@@ -137,28 +137,24 @@ extension SharedArticleViewController: NSFetchedResultsControllerDelegate
         switch type
         {
             case .insert:
-                print("Insert Operation")
                 DispatchQueue.main.async
                 {
                     self.sharedArticleTableView.reloadData()
                 }
                 break
             case .delete:
-                print("Delete Operation")
                 DispatchQueue.main.async
                 {
                     self.sharedArticleTableView.reloadData()
                 }
                 break
             case .update:
-                print("Update Operation")
                 DispatchQueue.main.async
                 {
                     self.sharedArticleTableView.reloadData()
                 }
                 break
             case .move:
-                print("Move Operation")
                 DispatchQueue.main.async
                 {
                     self.sharedArticleTableView.reloadData()

@@ -57,8 +57,6 @@ class SettingsViewController: UIViewController , UIPickerViewDelegate, UIPickerV
         {
             if(country == countryName)
             {
-                print(countryName)
-                print(index)
                 break
             }
             

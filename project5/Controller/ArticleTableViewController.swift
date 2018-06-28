@@ -280,11 +280,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                                 }
                             }
                         }
-                        else
-                        {
-                            print("Error downloading image for article: \(article.title!) => \(article.urlToImage!)")
-                            print("Error code: \(errorString!)")
-                        }
                     
                         DispatchQueue.main.async
                         {
@@ -293,10 +288,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                             activityIndicator.removeFromSuperview()
                         }
                 }
-            }
-            else
-            {
-                print("Article has no image: \(article.title!)")
             }
         }
         else

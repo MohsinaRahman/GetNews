@@ -37,7 +37,6 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
         view.addSubview(activityIndicator)
         
         webView.navigationDelegate = self
-        print("Started Loading")
         // Do any additional setup after loading the view.
         loadURL()
     }
@@ -56,7 +55,6 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!)
     {
-        print("Loading finished")
         view.alpha = CGFloat(1.0)
         activityIndicator.stopAnimating()
         
@@ -64,14 +62,12 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
     
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView)
     {
-        print("Load Failed: webViewWebContentProcessDidTerminate")
         activityIndicator.stopAnimating()
         view.alpha = CGFloat(1.0)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error)
     {
-        print("Load Failed: didFail navigation")
         activityIndicator.stopAnimating()
         showError(message: error.localizedDescription)
         view.alpha = CGFloat(1.0)
@@ -79,7 +75,6 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error)
     {
-        print("Load Failed: didFailProvisionalNavigation")
         activityIndicator.stopAnimating()
         showError(message: error.localizedDescription)
         view.alpha = CGFloat(1.0)
@@ -149,7 +144,6 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
                 s.article = Article(context: self.dataController.viewContext)
                 s.article?.setProperties(article: self.article!)
                 
-                print("Saving Shared Article")
                 try? self.dataController.viewContext.save()
             }
         }
@@ -161,8 +155,7 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
         {
             let articleList = fetchedFavoriteArticleListResultsController.fetchedObjects![0]
             let articles = articleList.articles
-            
-            print(articles!.count)
+
             for article in articles!
             {
                 if((article as! Article).url == self.article!.url)
@@ -220,8 +213,6 @@ extension ArticleDisplayViewController: NSFetchedResultsControllerDelegate
             
             if(fetchedFavoriteArticleListResultsController.fetchedObjects?.count == 0)
             {
-                
-                print("Creating new article list")
                 let articleList = ArticleList(context: dataController.viewContext)
                 articleList.categoryName = "favorite"
                 articleList.countryCode = "n/a"
@@ -268,28 +259,24 @@ extension ArticleDisplayViewController: NSFetchedResultsControllerDelegate
         switch type
         {
         case .insert:
-            print("Insert Operation")
             DispatchQueue.main.async
                 {
                     self.updateControls()
             }
             break
         case .delete:
-            print("Delete Operation")
             DispatchQueue.main.async
                 {
                     self.updateControls()
             }
             break
         case .update:
-            print("Update Operation")
             DispatchQueue.main.async
                 {
                     self.updateControls()
             }
             break
         case .move:
-            print("Move Operation")
             DispatchQueue.main.async
                 {
                     self.updateControls()

@@ -47,7 +47,7 @@ class InitialViewController: UIViewController
     
     @IBAction func topicSearchbuttonPressed(_ sender: Any)
     {
-        print("Topic search pressed")
+
     }
     
     @IBAction func shareButtonPressed(_ sender: Any)
