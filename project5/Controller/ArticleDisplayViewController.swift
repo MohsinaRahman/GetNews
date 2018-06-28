@@ -64,7 +64,25 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
     
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView)
     {
-        print("Load finished 2")
+        print("Load Failed: webViewWebContentProcessDidTerminate")
+        activityIndicator.stopAnimating()
+        view.alpha = CGFloat(1.0)
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error)
+    {
+        print("Load Failed: didFail navigation")
+        activityIndicator.stopAnimating()
+        showError(message: error.localizedDescription)
+        view.alpha = CGFloat(1.0)
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error)
+    {
+        print("Load Failed: didFailProvisionalNavigation")
+        activityIndicator.stopAnimating()
+        showError(message: error.localizedDescription)
+        view.alpha = CGFloat(1.0)
     }
     
     @IBAction func favButtonPressed(_ sender: Any)
@@ -162,6 +180,15 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
         favButton.image = isArticleInfavorite() ? UIImage(named: "star_selected") : UIImage(named: "star_unselected")
     }
     
+    
+    func showError(message: String)
+    {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
 }
 
 
