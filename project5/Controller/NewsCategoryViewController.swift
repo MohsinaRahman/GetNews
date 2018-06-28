@@ -76,7 +76,7 @@ class NewsCategoryViewController: UIViewController
     func transitionToArticleTable(category: String)
     {
         self.category = category
-        self.performSegue(withIdentifier: "segueToArticleTable", sender: self)
+        performSegue(withIdentifier: "segueToArticleTable", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -85,8 +85,8 @@ class NewsCategoryViewController: UIViewController
         {
             let controller: ArticleTableViewController = segue.destination as! ArticleTableViewController
             
-            controller.category = self.category
-            controller.dataController = self.dataController
+            controller.category = category
+            controller.dataController = dataController
         }
     }
 }

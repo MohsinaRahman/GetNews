@@ -28,7 +28,7 @@ class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableV
         let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home_1"), style: .plain, target: self, action: #selector(goHome))
         navigationItem.rightBarButtonItems = [buttonHome]
         
-        self.navigationItem.title = "Shared List"
+        navigationItem.title = "Shared List"
         
     }
     
@@ -74,12 +74,12 @@ class SharedArticleViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleDisplayViewController") as! ArticleDisplayViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "ArticleDisplayViewController") as! ArticleDisplayViewController
         
         controller.dataController = dataController
         controller.article = fetchedSharedArticleResultsController.object(at: indexPath).article!
         
-        self.navigationController!.pushViewController(controller, animated: true)
+        navigationController!.pushViewController(controller, animated: true)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat

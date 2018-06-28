@@ -34,7 +34,7 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
         updateControls()
         activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
         activityIndicator.color = UIColor.blue
-        self.view.addSubview(activityIndicator)
+        view.addSubview(activityIndicator)
         
         webView.navigationDelegate = self
         print("Started Loading")
@@ -87,9 +87,9 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
     
     @IBAction func favButtonPressed(_ sender: Any)
     {
-        if(self.fetchedFavoriteArticleListResultsController.fetchedObjects!.count > 0)
+        if(fetchedFavoriteArticleListResultsController.fetchedObjects!.count > 0)
         {
-            let favoriteList = self.fetchedFavoriteArticleListResultsController.fetchedObjects![0]
+            let favoriteList = fetchedFavoriteArticleListResultsController.fetchedObjects![0]
             
             if(isArticleInfavorite())
             {
@@ -106,14 +106,14 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
                 
                 if(articleToDelete != nil)
                 {
-                    self.dataController.viewContext.delete(articleToDelete!)
+                    dataController.viewContext.delete(articleToDelete!)
                 }
             }
             else
             {
                 // Add to favorite
-                let newFavArticle = Article(context: self.dataController.viewContext)
-                newFavArticle.setProperties(article: self.article!)
+                let newFavArticle = Article(context: dataController.viewContext)
+                newFavArticle.setProperties(article: article!)
                 newFavArticle.articleList = favoriteList
             }
         }
@@ -122,18 +122,18 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
             
         }
         
-        try? self.dataController.viewContext.save()
+        try? dataController.viewContext.save()
     }
     
     @IBAction func shaButtonPressed(_ sender: Any)
     {
-        let url = URL(string: self.article!.url!)
+        let url = URL(string: article!.url!)
         
         if(url != nil)
         {
             let controller = UIActivityViewController(activityItems:[url!], applicationActivities: nil)
-            controller.completionWithItemsHandler = self.activityViewControllerCompletion
-            self.present(controller, animated: true, completion: nil)
+            controller.completionWithItemsHandler = activityViewControllerCompletion
+            present(controller, animated: true, completion: nil)
         }
     }
     
@@ -141,7 +141,7 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
     {
         if completed
         {
-            self.dataController.backgroundContext.perform
+            dataController.backgroundContext.perform
             {
                 
                 let s = SharedArticle(context: self.dataController.viewContext)
@@ -187,7 +187,7 @@ class ArticleDisplayViewController: UIViewController, WKNavigationDelegate
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
 }
 
@@ -222,11 +222,11 @@ extension ArticleDisplayViewController: NSFetchedResultsControllerDelegate
             {
                 
                 print("Creating new article list")
-                let articleList = ArticleList(context: self.dataController.viewContext)
+                let articleList = ArticleList(context: dataController.viewContext)
                 articleList.categoryName = "favorite"
                 articleList.countryCode = "n/a"
                 
-                try? self.dataController.viewContext.save()
+                try? dataController.viewContext.save()
                 
             }
         }

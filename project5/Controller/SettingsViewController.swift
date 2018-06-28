@@ -16,10 +16,10 @@ class SettingsViewController: UIViewController , UIPickerViewDelegate, UIPickerV
     {
         super.viewDidLoad()
         
-        self.pickerView.delegate = self
-        self.pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
-        self.setInitialPickerViewValue()
+        setInitialPickerViewValue()
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int
@@ -65,6 +65,6 @@ class SettingsViewController: UIViewController , UIPickerViewDelegate, UIPickerV
             index = index + 1
         }
         
-        self.pickerView.selectRow(index, inComponent: 0, animated: true)
+        pickerView.selectRow(index, inComponent: 0, animated: true)
     }
 }

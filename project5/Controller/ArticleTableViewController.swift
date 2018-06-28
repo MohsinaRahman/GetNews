@@ -37,7 +37,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        if(self.category == "favorite" || self.category == "share")
+        if(category == "favorite" || category == "share")
         {
             let buttonHome = UIBarButtonItem(image: #imageLiteral(resourceName: "home_1"), style: .plain, target: self, action: #selector(goHome))
             navigationItem.rightBarButtonItems = [buttonHome]
@@ -52,33 +52,33 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         switch(category)
         {
             case "general":
-                self.navigationItem.title = "General Headlines"
+                navigationItem.title = "General Headlines"
             case "health":
-                self.navigationItem.title = "Health Headlines"
+                navigationItem.title = "Health Headlines"
             case "business":
-                self.navigationItem.title = "Business Headlines"
+                navigationItem.title = "Business Headlines"
             case "science":
-                self.navigationItem.title = "Science Headlines"
+                navigationItem.title = "Science Headlines"
             case "sports":
-                self.navigationItem.title = "Sports Headlines"
+                navigationItem.title = "Sports Headlines"
             case "technology":
-                self.navigationItem.title = "Technology Headlines"
+                navigationItem.title = "Technology Headlines"
             case "entertainment":
-                self.navigationItem.title = "Entertainment Headlines"
+                navigationItem.title = "Entertainment Headlines"
             
             
             case "favorite":
-                self.navigationItem.title = "Favorite List"
+                navigationItem.title = "Favorite List"
             case "share":
-                self.navigationItem.title = "Shared List"
+                navigationItem.title = "Shared List"
             
             default:
-                self.navigationItem.title = "Other Headlines"
+                navigationItem.title = "Other Headlines"
         }
         
         activityIndicator.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.size.height/2)
         activityIndicator.color = UIColor.blue
-        self.view.addSubview(activityIndicator)
+        view.addSubview(activityIndicator)
         
         if(category == "favorite")
         {
@@ -114,7 +114,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         activityIndicator.startAnimating()
         view.alpha = CGFloat(0.5)
         
-        NewsAPIClient.sharedInstance().getArticlesForCategory(category: self.category, countryCode: Settings.sharedInstance().getCountryCode())
+        NewsAPIClient.sharedInstance().getArticlesForCategory(category: category, countryCode: Settings.sharedInstance().getCountryCode())
         {
             (_ success: Bool, _ articlesArrayOfDictionary: [[String: AnyObject]]?, _ errorString: String?)->Void in
             
@@ -319,17 +319,17 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "ArticleDisplayViewController") as! ArticleDisplayViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "ArticleDisplayViewController") as! ArticleDisplayViewController
         
         controller.dataController = dataController
         controller.article = fetchedArticleResultsController.object(at: indexPath)
         
-        self.navigationController!.pushViewController(controller, animated: true)
+        navigationController!.pushViewController(controller, animated: true)
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        let shareAction = self.contextForShareAction(forRowAtIndexPath: indexPath)
+        let shareAction = contextForShareAction(forRowAtIndexPath: indexPath)
         
         let swipeConfig = UISwipeActionsConfiguration(actions: [shareAction])
         
@@ -342,7 +342,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         {
             let articleObjectID = fetchedArticleResultsController.object(at: indexPath).objectID
             
-            self.dataController.backgroundContext.perform
+            dataController.backgroundContext.perform
             {
                 // Get the article
                 let article = self.dataController.backgroundContext.object(with: articleObjectID) as! Article
@@ -393,7 +393,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     {
         if completed
         {
-            self.dataController.backgroundContext.perform
+            dataController.backgroundContext.perform
             {
                 
                 let s = SharedArticle(context: self.dataController.backgroundContext)
@@ -419,7 +419,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
     
     @objc func refreshArticles()
     {
-        self.getFreshNewsArticles()
+        getFreshNewsArticles()
     }
     
     
@@ -429,7 +429,7 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
     
 }
@@ -443,8 +443,8 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
         let fetchRequest:NSFetchRequest<ArticleList> = ArticleList.fetchRequest()
         
         // Set up the predicate
-        let countryCode = (self.category == "favorite" || self.category == "share") ? "n/a" : Settings.sharedInstance().getCountryCode()
-        let predicate = NSPredicate(format: "categoryName = %@ AND countryCode = %@", self.category, countryCode)
+        let countryCode = (category == "favorite" || category == "share") ? "n/a" : Settings.sharedInstance().getCountryCode()
+        let predicate = NSPredicate(format: "categoryName = %@ AND countryCode = %@", category, countryCode)
         fetchRequest.predicate = predicate
         
         // Set up the sort order
@@ -464,18 +464,18 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
             
             if(fetchedArticleListResultsController.fetchedObjects?.count == 0)
             {
-                if(self.articleList == nil)
+                if(articleList == nil)
                 {
-                    self.articleList = ArticleList(context: self.dataController.viewContext)
-                    self.articleList.categoryName = self.category
-                    self.articleList.countryCode = countryCode
+                    articleList = ArticleList(context: dataController.viewContext)
+                    articleList.categoryName = category
+                    articleList.countryCode = countryCode
                     
-                    try? self.dataController.viewContext.save()
+                    try? dataController.viewContext.save()
                 }
             }
             else
             {
-                self.articleList = fetchedArticleListResultsController.fetchedObjects![0]
+                articleList = fetchedArticleListResultsController.fetchedObjects![0]
             }
         }
         catch
@@ -491,9 +491,9 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
         
         
         // Set up the predicate
-        if(self.articleList != nil)
+        if(articleList != nil)
         {
-            let predicate = NSPredicate(format: "articleList == %@", self.articleList)
+            let predicate = NSPredicate(format: "articleList == %@", articleList)
             fetchRequest.predicate = predicate
         }
         // Set up the sort order
