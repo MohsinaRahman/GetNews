@@ -45,7 +45,25 @@ By tapping setting, a user can choose the Country
 
 
 # Build and run
-For run the app, a user should go to the Clone or Download file. By clicking that, it will give the option for downloading a zip file. By clicking download zip file, it will automatically save on the desktop or in the download file. After that, open the GetNews-master folder and click on the project5.xcodeproj to see the full project or project5 folder to see the project related files.
+
+
+* Please navigate to the following URL: https://github.com/MohsinaRahman/GetNews
+
+* Click on the green button labeled Clone or Download
+
+* Choose the download zip option
+
+* Unzip the downloaded zip file.
+
+* Navigate inside the unzipped folder.
+
+* Click on the file labeled project5.xcodeProject
+
+* If a warning dialog appears, click on Open Anyway
+
+* Click on the project 5 project
+
+* Simultaneously press Command + B to run
 
 
 
