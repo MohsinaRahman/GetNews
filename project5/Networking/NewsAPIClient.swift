@@ -126,7 +126,6 @@ class NewsAPIClient: NSObject
         do
         {
             let parsedResult = try JSONSerialization.jsonObject(with: actualData, options: .allowFragments) as AnyObject
-            print(parsedResult)
             result = (parsedResult, nil)
         }
         catch

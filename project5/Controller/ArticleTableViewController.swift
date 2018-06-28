@@ -32,7 +32,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 140
         
         if(self.category == "favorite" || self.category == "share")
         {
@@ -135,7 +134,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                             // Set the properties of the article based on the dictionary
                             article.setProperties(article: dictionary)
                             article.articleList = articleList1
-                            print("Created article with URL: \(article.url!)")
                         }
                     }
                     
@@ -144,13 +142,11 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                     for objectID in itemsToDelete
                     {
                         let articleToDelete = self.dataController.backgroundContext.object(with: objectID) as! Article
-                        print("Deleted an old article: \(articleToDelete.url!)")
                         articleList1?.removeFromArticles(articleToDelete)
                         self.dataController.backgroundContext.delete(articleToDelete)
                     }
                     
                     // Save on the background context
-                    print("Saving freshnews results")
                     try? self.dataController.backgroundContext.save()
                 }
                 
@@ -184,7 +180,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
         {
             if((article as! Article).url == url)
             {
-                print("article with \(url) is already present")
                 present = true
                 break
             }
@@ -308,16 +303,25 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
             let articleObjectID = fetchedArticleResultsController.object(at: indexPath).objectID
             
             self.dataController.backgroundContext.perform
-                {
-                    // Get the article
-                    let article = self.dataController.backgroundContext.object(with: articleObjectID) as! Article
-                    // Delete the article
-                    self.dataController.backgroundContext.delete(article)
-                    // Save on the background context
-                    print("Deleting article #\(indexPath.row)")
-                    try? self.dataController.backgroundContext.save()
+            {
+                // Get the article
+                let article = self.dataController.backgroundContext.object(with: articleObjectID) as! Article
+                // Delete the article
+                self.dataController.backgroundContext.delete(article)
+                // Save on the background context
+                try? self.dataController.backgroundContext.save()
             }
         }
+    }
+    
+    // MARK: - Dynamic row height for table view cells.
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return max(128, UITableViewAutomaticDimension)
     }
     
     func contextForShareAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction
@@ -357,7 +361,6 @@ class ArticleTableViewController: UIViewController, UITableViewDataSource, UITab
                 s.article = Article(context: self.dataController.backgroundContext)
                 s.article?.setProperties(article: self.sharedArticle!)
                 
-                print("Saving Shared Article")
                 try? self.dataController.backgroundContext.save()
             }
         }
@@ -423,7 +426,6 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
             {
                 if(self.articleList == nil)
                 {
-                    print("Creating new article list")
                     self.articleList = ArticleList(context: self.dataController.viewContext)
                     self.articleList.categoryName = self.category
                     self.articleList.countryCode = countryCode
@@ -433,15 +435,7 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
             }
             else
             {
-                print("# of article lists found = \(fetchedArticleListResultsController.fetchedObjects?.count)")
-                print("Using old article list")
-                
-                var x = fetchedArticleListResultsController.fetchedObjects?.count
                 self.articleList = fetchedArticleListResultsController.fetchedObjects![0]
-                print(self.articleList.categoryName!)
-                print(self.articleList.countryCode!)
-                print(self.articleList.articles!.count)
-                
             }
         }
         catch
@@ -516,28 +510,24 @@ extension ArticleTableViewController: NSFetchedResultsControllerDelegate
         switch type
         {
         case .insert:
-            print("Insert Operation")
             DispatchQueue.main.async
                 {
                     self.tableView.reloadData()
             }
             break
         case .delete:
-            print("Delete Operation")
             DispatchQueue.main.async
                 {
                     self.tableView.reloadData()
             }
             break
         case .update:
-            print("Update Operation")
             DispatchQueue.main.async
                 {
                     self.tableView.reloadData()
             }
             break
         case .move:
-            print("Move Operation")
             break
         }
     }
@@ -561,15 +551,11 @@ extension ArticleTableViewController
     
     func handleSaveNotification(notification:Notification)
     {
-        print("Update from background thread")
-        
         dataController.viewContext.perform
         {
             do
             {
-                print("performing fetch")
                 try self.fetchedArticleResultsController.performFetch()
-                print("finished performing fetch")
             }
             catch
             {
