@@ -13,7 +13,7 @@ A User can go to the next page by tapping one of the buttons. Top headlines butt
 
 ![alt text](https://github.com/MohsinaRahman/GetNews/blob/master/news_categories.png "News Categories")
 
-By tapping any of the buttons from the categories page, will take to the news article page.
+By tapping any of the buttons from the categories page, will take to the news article page. The articles are shown with an image on the left, the source at the top, and then the title of the article. Please note that not all articles have images so a place holder image might be shown for certain articles.
 
 
 ![alt text](https://github.com/MohsinaRahman/GetNews/blob/master/articles_categories.png "Articles Categories")
