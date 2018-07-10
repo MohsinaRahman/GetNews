@@ -36,11 +36,12 @@ class Settings
     
     func populateCountryInfo()
     {
-        countryNames = ["Argentina","Australia", "Canada", "France", "India", "United Kingdom", "USA"]
+        countryNames = ["Argentina","Australia", "Canada", "China", "France", "India", "United Kingdom", "USA"]
         
         countryCodeDictionary["Australia"] = "au"
         countryCodeDictionary["Argentina"] = "ar"
         countryCodeDictionary["Canada"] = "ca"
+        countryCodeDictionary["China"] = "cz"
         countryCodeDictionary["France"] = "fr"
         countryCodeDictionary["India"] = "in"
         countryCodeDictionary["United Kingdom"] = "gb"
