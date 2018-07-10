@@ -41,7 +41,7 @@ class Settings
         countryCodeDictionary["Australia"] = "au"
         countryCodeDictionary["Argentina"] = "ar"
         countryCodeDictionary["Canada"] = "ca"
-        countryCodeDictionary["China"] = "cz"
+        countryCodeDictionary["China"] = "cn"
         countryCodeDictionary["France"] = "fr"
         countryCodeDictionary["India"] = "in"
         countryCodeDictionary["United Kingdom"] = "gb"
